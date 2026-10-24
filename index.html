@@ -1086,9 +1086,288 @@ const DIAG = [
 ];
 const DIAG_SECTIONS = {A:["Articles & nouns",["a1-noms","a1-articles"]], B:["Pronouns",["a2-cod-coi","a1-neg-q"]], C:["Conjugation",["a1-er","a2-irreguliers","a2-pc-etre","a2-imparfait","a2-futur"]], D:["Tense choice",["b1-pc-imp","a2-temps","b1-conditionnel"]], E:["Connectors & register",["b1-connecteurs","b2-nuance"]], F:["Subjunctive",["b1-subj"]], G:["Classic mistakes",["a1-etre-avoir","a1-articles","b1-conditionnel"]]};
 
+/* ---------- extra lesson questions (each attempt draws from these + the lesson's own) ---------- */
+const EXTRA = {
+ "a1-sons":[
+  {q:"Which letter of « nez » is silent?", o:["n","e","z"], a:2, x:"Final z is silent."},
+  {q:"Which word has a nasal vowel?", o:["bonne","bon","bonnet"], a:1, x:"bon: n at the end, no vowel after it."},
+  {q:"Add the cédille: « garcon » →", t:["garçon"], x:"ç keeps the c soft before o."},
+  {q:"Tu habites ___ ? (where)", o:["ou","où"], a:1, x:"où = where; ou = or."},
+  {q:"Élision: « le + hôtel » =", t:["l'hôtel"], x:"h muet → l'."},
+  {q:"Élision: « si + il » =", t:["s'il"], x:"si → s' only before il/ils."},
+  {q:"After which word is there never a liaison?", o:["les","vous","et"], a:2, x:"Never after et."},
+  {q:"Is the « l » of « il » pronounced?", o:["Yes","No"], a:0, x:"C-R-F-L: final l is pronounced."},
+  {q:"Add the accent: « frere » (brother) →", t:["frère"], x:"è grave: open « eh »."}],
+ "a1-noms":[
+  {q:"Gender of « fromage »?", o:["masculin","féminin"], a:0, x:"-age → masculine."},
+  {q:"Gender of « plage »?", o:["masculin","féminin"], a:1, x:"Exception: la plage."},
+  {q:"Plural of « l'œil »:", t:["les yeux","yeux"], x:"Irregular: les yeux."}],
+ "a1-articles":[
+  {q:"Il est ___ médecin.", o:["un","le","(no article)"], a:2, x:"Job after être: no article."},
+  {q:"Je bois beaucoup ___ eau.", o:["de l'","d'","des"], a:1, x:"After beaucoup → d'."},
+  {q:"de + les = ?", t:["des"], x:"La couleur des yeux."},
+  {q:"C'est ___ bon médecin.", o:["un","(no article)"], a:0, x:"C'est + description keeps the article."}],
+ "a1-etre-avoir":[
+  {q:"Tu ___ (avoir) froid ?", t:["as"], x:"tu as."},
+  {q:"Ils ___ (être) au travail.", t:["sont"], x:"ils sont."},
+  {q:"« She is right »", o:["Elle est raison","Elle a raison"], a:1, x:"avoir raison."},
+  {q:"J'___ peur des chiens.", t:["ai"], x:"avoir peur."},
+  {q:"« We're going to the cinema » (casual)", o:["On va au cinéma","Nous va au cinéma","On allons au cinéma"], a:0, x:"on + 3rd person singular."},
+  {q:"With the TEF examiner, use…", o:["tu","vous"], a:1, x:"vous with strangers and examiners."}],
+ "a1-er":[
+  {q:"Nous ___ (commencer) à 9 h.", t:["commençons"], x:"ç before o."},
+  {q:"J'___ (acheter) du pain.", t:["achète"], x:"e → è: j'achète."},
+  {q:"Je m'___ (appeler) Ana.", t:["appelle"], x:"Double l: je m'appelle."}],
+ "a1-adj":[
+  {q:"un ___ ami (nouveau)", o:["nouveau","nouvel","nouvelle"], a:1, x:"Before a vowel: nouvel."},
+  {q:"« my former teacher »", o:["mon ancien professeur","mon professeur ancien"], a:0, x:"ancien before = former."},
+  {q:"une ___ femme (vieux)", t:["vieille"], x:"vieux → vieille."}],
+ "a1-neg-q":[
+  {q:"Negate: « Elle mange de la viande. »", t:["elle ne mange pas de viande"], x:"de la → de after a negative."},
+  {q:"« He doesn't live here any more »", o:["Il n'habite plus ici","Il n'habite pas ici","Il n'habite jamais ici"], a:0, x:"ne … plus."},
+  {q:"« I see nothing »", o:["Je ne vois rien","Je ne vois personne","Je vois rien pas"], a:0, x:"ne … rien."},
+  {q:"___ habitez-vous ? — À Montréal.", o:["Où","Quand","Comment"], a:0, x:"où = where."},
+  {q:"___ coûte ce livre ? — 20 $.", o:["Combien","Pourquoi","Qui"], a:0, x:"combien = how much."},
+  {q:"___ apprends-tu le français ? — Pour l'examen.", o:["Pourquoi","Où","Quand"], a:0, x:"pourquoi = why."},
+  {q:"Inversion of « Il parle français ? »", o:["Parle-t-il français ?","Parle-il français ?","Il parle-t-il ?"], a:0, x:"-t- between two vowels."},
+  {q:"___ livres préfères-tu ?", o:["Quels","Quelles","Quel"], a:0, x:"livres: masculine plural."},
+  {q:"Je ne connais ___ ici. (nobody)", t:["personne"], x:"ne … personne."}],
+ "a1-lieux":[
+  {q:"Il habite ___ Mexique.", o:["en","au","à"], a:1, x:"Le Mexique is masculine."}],
+ "a1-poss":[
+  {q:"Paul's sister = ___ sœur", o:["son","sa"], a:1, x:"sœur is feminine; the owner doesn't matter."}],
+ "a1-nombres":[
+  {q:"« Monday, March 3rd »", o:["Lundi 3 Mars","lundi 3 mars"], a:1, x:"No capitals on days and months."},
+  {q:"8:15 =", o:["huit heures et quart","huit heures moins le quart","huit heures et demie"], a:0, x:"et quart = quarter past."},
+  {q:"9:30 =", o:["neuf heures et demie","neuf heures et quart","dix heures moins la demie"], a:0, x:"et demie = half past."},
+  {q:"« July 14th »", t:["le 14 juillet","le quatorze juillet"], x:"le + number + month."}],
+ "a2-pc-avoir":[
+  {q:"Les photos ? Je les ai ___ (prendre).", t:["prises"], x:"Agreement with a direct object placed before: prises."}],
+ "a2-pc-etre":[
+  {q:"Which takes avoir?", o:["J'ai sorti le chien.","Je suis sorti le chien."], a:0, x:"sortir + direct object → avoir."}],
+ "a2-imparfait":[
+  {q:"Which signals the imparfait?", o:["autrefois","tout à coup","hier à midi"], a:0, x:"autrefois = in the past, habit."}],
+ "a2-futur":[
+  {q:"« When I'm rich, I'll travel »", o:["Quand je serai riche, je voyagerai","Quand je suis riche, je voyagerai"], a:0, x:"Future after quand."}],
+ "a2-cod-coi":[
+  {q:"Tu as vu les filles ? Oui, je les ai ___.", t:["vues"], x:"Agreement with les (feminine plural) placed before."},
+  {q:"Je réponds à mon professeur → Je ___ réponds.", t:["lui"], x:"répondre à → lui."}],
+ "a2-pronominaux":[
+  {q:"Elle ___ (s'habiller) vite.", t:["s'habille"], x:"elle s'habille."},
+  {q:"Vous ___ reposez le dimanche ?", t:["vous"], x:"vous vous reposez."},
+  {q:"Ils se sont ___ (marier) en 2015.", t:["mariés"], x:"Reflexive → être + agreement."},
+  {q:"Imperative (vous) of « se lever »", o:["Levez-vous !","Vous levez !","Lève-toi !"], a:0, x:"Pronoun after, with a hyphen."},
+  {q:"Je me souviens ___ cette journée.", t:["de"], x:"se souvenir de."},
+  {q:"Je ___ (se coucher) à 23 h.", t:["me couche"], x:"je me couche."}],
+ "a2-comparaison":[
+  {q:"Le train est ___ rapide ___ l'avion. (less … than)", o:["moins … que","plus … que","aussi … que"], a:0, x:"moins … que."},
+  {q:"C'est le ___ restaurant de la ville. (best)", t:["meilleur"], x:"bon → le meilleur."},
+  {q:"Il chante ___ que moi. (better)", t:["mieux"], x:"Adverb → mieux."},
+  {q:"Elle a ___ amis que lui. (more)", o:["plus d'","plus","plus des"], a:0, x:"plus de / d' + noun."},
+  {q:"C'est la ville ___ chère du Canada. (the most)", o:["la plus","plus","le plus"], a:0, x:"la ville → la plus."},
+  {q:"Je travaille ___ que toi. (as much)", o:["autant","aussi","autant de"], a:0, x:"verb + autant que."}],
+ "a2-irreguliers":[
+  {q:"« I just arrived »", o:["Je viens d'arriver","Je vais arriver","J'arrive juste"], a:0, x:"venir de + infinitive."}],
+ "a2-y-en":[
+  {q:"Vous allez au Québec ? Oui, nous ___ allons.", t:["y"], x:"Place → y."},
+  {q:"Il a des enfants ? Oui, il ___ a deux.", t:["en"], x:"Quantity → en."},
+  {q:"Tu penses à ton examen ? Oui, j'___ pense.", t:["y"], x:"penser à + thing → y."},
+  {q:"Elle parle de son voyage ? Oui, elle ___ parle.", t:["en"], x:"parler de + thing → en."},
+  {q:"Tu penses à ta mère ? Oui, je pense ___.", o:["à elle","y","en"], a:0, x:"People → stressed pronoun."},
+  {q:"Il y a du lait ? Oui, il ___ a.", t:["y en"], x:"il y en a."},
+  {q:"Tu reviens de la banque ? Oui, j'___ reviens.", t:["en"], x:"de + place → en."}],
+ "a2-temps":[
+  {q:"Je travaille ici ___ 2020.", o:["depuis","il y a","pendant"], a:0, x:"Still true → depuis."},
+  {q:"Nous partons en vacances ___ deux semaines.", o:["dans","depuis","il y a"], a:0, x:"From now → dans."},
+  {q:"Il a vécu en France ___ trois ans, puis il est revenu.", o:["pendant","depuis","dans"], a:0, x:"Finished duration → pendant."},
+  {q:"J'ai commencé le français ___ six mois.", o:["il y a","depuis","dans"], a:0, x:"ago → il y a."},
+  {q:"Elle attend le bus ___ vingt minutes. (still waiting)", t:["depuis"], x:"depuis + present."},
+  {q:"« I've known her for 10 years »", o:["Je la connais depuis dix ans","Je l'ai connue pendant dix ans","Je la connais il y a dix ans"], a:0, x:"Still true → present + depuis."}],
+ "b1-pc-imp":[
+  {q:"Quand je suis arrivée au Canada, il ___ (faire) très froid.", t:["faisait"], x:"Background → imparfait."},
+  {q:"Tout à coup, mon téléphone ___ (sonner).", o:["sonnait","a sonné"], a:1, x:"tout à coup → passé composé."},
+  {q:"Avant, je ___ (travailler) le samedi.", o:["travaillais","ai travaillé"], a:0, x:"Habit → imparfait."},
+  {q:"Hier soir, nous ___ (regarder) un film.", o:["avons regardé","regardions"], a:0, x:"One completed event."},
+  {q:"Elle ___ (être) fatiguée, alors elle s'est couchée tôt.", o:["était","a été"], a:0, x:"A state → imparfait."},
+  {q:"Pendant que je ___ (cuisiner), les enfants jouaient.", t:["cuisinais"], x:"Ongoing action → imparfait."},
+  {q:"Un jour, j'___ (décider) de changer de travail.", o:["ai décidé","décidais"], a:0, x:"un jour → passé composé."}],
+ "b1-pqp":[
+  {q:"J'ai perdu le livre que tu m'___ (prêter).", t:["avais prêté"], x:"Earlier past → plus-que-parfait."},
+  {q:"Ils ___ (déjà partir) quand je suis arrivée.", t:["étaient déjà partis"], x:"partir → être, agreement -s."}],
+ "b1-conditionnel":[
+  {q:"Si tu ___ (venir), on serait contents.", t:["venais"], x:"si + imparfait."},
+  {q:"S'il pleut demain, nous ___ (rester) à la maison.", o:["resterons","resterions"], a:0, x:"si + présent → futur."},
+  {q:"___-vous m'aider, s'il vous plaît ? (pouvoir, polite)", t:["pourriez"], x:"Conditional = polite."},
+  {q:"J'___ (aimer) vivre au bord de la mer.", t:["aimerais"], x:"Wish → conditionnel."},
+  {q:"À ta place, je ___ (prendre) le train.", t:["prendrais"], x:"Advice."}],
+ "b1-subj":[
+  {q:"Je pense qu'il ___ (être) malade.", o:["est","soit"], a:0, x:"penser que (positive) + indicatif."},
+  {q:"Je suis contente que tu ___ (être) là.", t:["sois"], x:"Emotion → subjonctif."},
+  {q:"Je veux ___ (partir) tôt.", o:["partir","que je parte"], a:0, x:"Same subject → infinitive."},
+  {q:"Avant que tu ___ (partir), appelle-moi.", t:["partes"], x:"avant que + subjonctif."},
+  {q:"Il est important que vous ___ (avoir) vos documents.", t:["ayez"], x:"Irregular: ayez."}],
+ "b1-relatifs":[
+  {q:"C'est l'outil ___ j'ai besoin.", t:["dont"], x:"avoir besoin de → dont."},
+  {q:"Le jour ___ je suis arrivée, il neigeait.", t:["où"], x:"Time → où."},
+  {q:"L'homme ___ tu as vu est mon voisin.", o:["que","qui","dont"], a:0, x:"tu is the subject → que."},
+  {q:"Les amis ___ habitent à Québec arrivent demain.", o:["qui","que","où"], a:0, x:"Subject → qui."},
+  {q:"Je ne comprends pas ___ tu dis.", o:["ce que","ce qui","que"], a:0, x:"Object « what » → ce que."},
+  {q:"C'est une ville ___ je me souviens bien.", t:["dont"], x:"se souvenir de → dont."},
+  {q:"Le restaurant ___ nous allons est très bon.", t:["où"], x:"Place → où."}],
+ "b1-ordre":[
+  {q:"Elle donne les clés à ses enfants →", o:["Elle les leur donne","Elle leur les donne"], a:0, x:"les before leur."},
+  {q:"Ne me donne pas le livre → Ne ___ donne pas.", t:["me le"], x:"me before le."},
+  {q:"Tu as parlé de ton projet à Paul ? Oui, je ___ ai parlé.", t:["lui en"], x:"lui before en."},
+  {q:"Montre-moi les photos → Montre-___ !", t:["les-moi"], x:"Affirmative imperative: les-moi."},
+  {q:"Il m'a envoyé des fleurs → Il ___ a envoyé.", t:["m'en"], x:"me + en → m'en."}],
+ "b1-connecteurs":[
+  {q:"Je reste à la maison ___ je suis malade.", o:["car","donc","pourtant"], a:0, x:"Cause."},
+  {q:"Elle a beaucoup étudié ; ___, elle a réussi.", o:["par conséquent","cependant","car"], a:0, x:"Consequence."},
+  {q:"Il aime le sport ; ___, il déteste courir.", o:["en revanche","donc","de plus"], a:0, x:"Opposition."},
+  {q:"___, je voudrais vous remercier. (first)", t:["d'abord"], x:"Order."},
+  {q:"Le télétravail est pratique. ___, il fait économiser. (in addition)", o:["De plus","Pourtant","Donc"], a:0, x:"Addition."},
+  {q:"Je suis en retard ___ la neige.", o:["à cause de","grâce à","parce que"], a:0, x:"Negative cause + noun."}],
+ "b1-imperatif":[
+  {q:"Ne ___ (s'inquiéter) pas ! (tu)", t:["t'inquiète"], x:"Ne t'inquiète pas."},
+  {q:"Dépêchons-___ !", t:["nous"], x:"Dépêchons-nous."},
+  {q:"___ (avoir) confiance ! (vous)", t:["ayez"], x:"Irregular: ayez."}],
+ "b2-cond-passe":[
+  {q:"Si nous avions su, nous ___ (partir) plus tôt.", t:["serions partis"], x:"si + PQP → conditionnel passé."},
+  {q:"J'___ (aimer) te voir hier.", t:["aurais aimé"], x:"Regret."},
+  {q:"Vous ___ (pouvoir) me prévenir !", t:["auriez pu"], x:"Reproach."},
+  {q:"Si elle ___ (étudier), elle aurait réussi.", t:["avait étudié"], x:"si + plus-que-parfait."},
+  {q:"Selon les médias, le ministre ___ (démissionner).", o:["aurait démissionné","a démissionné"], a:0, x:"Unconfirmed news."},
+  {q:"Si j'avais accepté ce poste, j'___ (habiter) à Toronto aujourd'hui.", t:["habiterais"], x:"Mixed: result now → conditionnel présent."}],
+ "b2-subj-avance":[
+  {q:"Il est probable qu'il ___ (pleuvoir) demain.", o:["pleuvra","pleuve"], a:0, x:"probable → indicatif."},
+  {q:"C'est le meilleur livre que j'___ (lire).", o:["aie lu","ai lu"], a:0, x:"Superlative → subjonctif."},
+  {q:"Je doute qu'elle ___ (venir).", t:["vienne"], x:"Doubt → subjonctif."},
+  {q:"Je suis sûre qu'il ___ (avoir) raison.", o:["a","ait"], a:0, x:"Certainty → indicatif."},
+  {q:"Je suis contente que tu ___ (réussir) ton examen. (already done)", o:["aies réussi","as réussi"], a:0, x:"Subjonctif passé."},
+  {q:"Il semble qu'il y ___ (avoir) un problème.", t:["ait"], x:"il semble que → subjonctif."}],
+ "b2-futur-ant":[
+  {q:"Une fois que tu ___ (lire) le texte, réponds aux questions.", t:["auras lu"], x:"Futur antérieur."},
+  {q:"Elle n'est pas encore là ? Elle ___ (manquer) son bus.", t:["aura manqué"], x:"Supposition about the past."},
+  {q:"Dès que nous ___ (arriver), nous vous appellerons.", t:["serons arrivés","serons arrivées"], x:"arriver → être."}],
+ "b2-lequel":[
+  {q:"La table sur ___ j'ai posé mes clés.", t:["laquelle"], x:"table is feminine."},
+  {q:"Les projets ___ je travaille. (travailler sur)", o:["sur lesquels","auxquels","dont"], a:0, x:"sur + lesquels."},
+  {q:"La conférence ___ j'ai assisté (assister à).", o:["à laquelle","auquel","laquelle"], a:0, x:"à + laquelle."},
+  {q:"Le bâtiment en face ___ j'habite.", o:["duquel","auquel","dont"], a:0, x:"en face de + lequel = duquel."},
+  {q:"Les questions ___ je pense (penser à).", t:["auxquelles"], x:"à + lesquelles."},
+  {q:"La collègue ___ je travaille.", o:["avec qui","avec que","dont"], a:0, x:"People → avec qui."}],
+ "b2-gerondif":[
+  {q:"Il s'est blessé ___ (faire) du ski.", t:["en faisant"], x:"en + faisant."},
+  {q:"___ (être) malade, elle n'est pas venue.", t:["étant"], x:"Participe présent of être."},
+  {q:"On apprend ___ (se tromper).", t:["en se trompant"], x:"Reflexive gérondif."}],
+ "b2-passif":[
+  {q:"Le gouvernement a pris une décision → Une décision ___ par le gouvernement.", t:["a été prise"], x:"Agreement: prise."},
+  {q:"Ce livre ___ (écrire) en 1950.", t:["a été écrit"], x:"passé composé passif."},
+  {q:"Elle est aimée ___ tous ses collègues.", t:["de"], x:"Feelings → de."},
+  {q:"On construira un pont → Un pont ___.", t:["sera construit"], x:"futur passif."},
+  {q:"« This wine is drunk chilled »", o:["Ce vin se boit frais","Ce vin boit frais"], a:0, x:"se + verb."},
+  {q:"Les résultats ___ (annoncer) hier.", t:["ont été annoncés"], x:"Plural agreement."}],
+ "b2-discours":[
+  {q:"« J'ai fini. » → Il a dit qu'il ___ fini.", t:["avait"], x:"PC → plus-que-parfait."},
+  {q:"« Qu'est-ce que tu fais ? » → Elle m'a demandé ___ je faisais.", t:["ce que"], x:"qu'est-ce que → ce que."},
+  {q:"« Je partirai demain. » → Il a dit qu'il partirait ___.", t:["le lendemain"], x:"demain → le lendemain."},
+  {q:"« Où habites-tu ? » → Il m'a demandé où ___.", o:["j'habitais","habitais-je","j'habite"], a:0, x:"No inversion; tense shifts."},
+  {q:"« Ne parlez pas ! » → Le prof nous a dit ___ parler.", t:["de ne pas"], x:"Negative imperative → de ne pas + infinitive."},
+  {q:"« Qu'est-ce qui se passe ? » → Il a demandé ___ se passait.", t:["ce qui"], x:"qu'est-ce qui → ce qui."}],
+ "b2-nuance":[
+  {q:"___ il fasse froid, nous sortons.", o:["Bien qu'","Malgré","Même si"], a:0, x:"fasse = subjonctif → bien que."},
+  {q:"___ ses efforts, il a échoué.", t:["malgré"], x:"+ noun → malgré."},
+  {q:"B2 upgrade of « il y a beaucoup de problèmes »", o:["on observe de nombreux problèmes","il y a plein de problèmes"], a:0, x:"More formal."},
+  {q:"« ___ est de constater que… » (one has to admit)", t:["force"], x:"Force est de constater."},
+  {q:"B2 upgrade of « dire »", o:["affirmer","parler","raconter"], a:0, x:"affirmer, souligner."},
+  {q:"Même si tu ___ (avoir) raison, je ne suis pas d'accord.", t:["as"], x:"même si + indicatif."},
+  {q:"D'une part…, ___ …", t:["d'autre part"], x:"d'une part… d'autre part…"}]
+};
+
+/* ---------- question generators: endless fresh practice ---------- */
+const pick = a => a[Math.floor(Math.random()*a.length)];
+const rnd = n => Math.floor(Math.random()*n);
+const PRON = ["je","tu","il","nous","vous","ils"];
+const vowelStart = s => /^[aeiouyéèêâîôûœh]/i.test(s);
+function subjFor(i, form){ let p = i===2 ? pick(["il","elle","on"]) : i===5 ? pick(["ils","elles"]) : PRON[i]; return (p==="je" && vowelStart(form)) ? "j'" : p; }
+const blank = (p) => p==="j'" ? "j'___" : p+" ___";
+const END = {pres_er:["e","es","e","ons","ez","ent"], imp:["ais","ais","ait","ions","iez","aient"], fut:["ai","as","a","ons","ez","ont"], subj:["e","es","e","ions","iez","ent"]};
+const ER_V = ["parler","habiter","travailler","aimer","regarder","écouter","chercher","donner","arriver","jouer","étudier","rester","danser","penser","oublier","demander"];
+const IRR = {être:["suis","es","est","sommes","êtes","sont"], avoir:["ai","as","a","avons","avez","ont"], aller:["vais","vas","va","allons","allez","vont"], faire:["fais","fais","fait","faisons","faites","font"], venir:["viens","viens","vient","venons","venez","viennent"], prendre:["prends","prends","prend","prenons","prenez","prennent"], pouvoir:["peux","peux","peut","pouvons","pouvez","peuvent"], vouloir:["veux","veux","veut","voulons","voulez","veulent"], devoir:["dois","dois","doit","devons","devez","doivent"], dire:["dis","dis","dit","disons","dites","disent"], savoir:["sais","sais","sait","savons","savez","savent"], mettre:["mets","mets","met","mettons","mettez","mettent"], voir:["vois","vois","voit","voyons","voyez","voient"], boire:["bois","bois","boit","buvons","buvez","boivent"], finir:["finis","finis","finit","finissons","finissez","finissent"], lire:["lis","lis","lit","lisons","lisez","lisent"], écrire:["écris","écris","écrit","écrivons","écrivez","écrivent"], partir:["pars","pars","part","partons","partez","partent"]};
+const IMP_STEM = {parler:"parl", habiter:"habit", travailler:"travaill", finir:"finiss", prendre:"pren", faire:"fais", avoir:"av", être:"ét", aller:"all", venir:"ven", boire:"buv", lire:"lis", écrire:"écriv", dire:"dis", vouloir:"voul", pouvoir:"pouv", voir:"voy", savoir:"sav", jouer:"jou", regarder:"regard"};
+const FUT_STEM = {parler:"parler", habiter:"habiter", travailler:"travailler", finir:"finir", prendre:"prendr", être:"ser", avoir:"aur", aller:"ir", faire:"fer", venir:"viendr", pouvoir:"pourr", vouloir:"voudr", devoir:"devr", savoir:"saur", voir:"verr", dire:"dir", écrire:"écrir", partir:"partir"};
+const SUBJ_STEM = {parler:["parl","parl"], finir:["finiss","finiss"], prendre:["prenn","pren"], venir:["vienn","ven"], boire:["boiv","buv"], faire:["fass","fass"], aller:["aill","all"], pouvoir:["puiss","puiss"], savoir:["sach","sach"], vouloir:["veuill","voul"], partir:["part","part"], dire:["dis","dis"], écrire:["écriv","écriv"], devoir:["doiv","dev"], attendre:["attend","attend"]};
+const SUBJ_FULL = {être:["sois","sois","soit","soyons","soyez","soient"], avoir:["aie","aies","ait","ayons","ayez","aient"]};
+const PP_AV = {parler:"parlé", finir:"fini", prendre:"pris", faire:"fait", voir:"vu", lire:"lu", écrire:"écrit", boire:"bu", mettre:"mis", dire:"dit", recevoir:"reçu", ouvrir:"ouvert", vendre:"vendu", attendre:"attendu", avoir:"eu", être:"été", pouvoir:"pu", vouloir:"voulu", devoir:"dû", savoir:"su", connaître:"connu", vivre:"vécu", manger:"mangé", acheter:"acheté"};
+const PP_ET = {aller:"allé", venir:"venu", partir:"parti", arriver:"arrivé", sortir:"sorti", entrer:"entré", rester:"resté", tomber:"tombé", naître:"né", descendre:"descendu", rentrer:"rentré", devenir:"devenu", retourner:"retourné", monter:"monté"};
+const AUX = {pres:{avoir:IRR.avoir, être:IRR.être}, imp:{avoir:["avais","avais","avait","avions","aviez","avaient"], être:["étais","étais","était","étions","étiez","étaient"]}, fut:{avoir:["aurai","auras","aura","aurons","aurez","auront"], être:["serai","seras","sera","serons","serez","seront"]}, cond:{avoir:["aurais","aurais","aurait","aurions","auriez","auraient"], être:["serais","serais","serait","serions","seriez","seraient"]}};
+const ET_SUBJ = [{s:"Marie",i:2,g:"e"},{s:"Paul",i:2,g:""},{s:"Mes sœurs",i:5,g:"es"},{s:"Mes parents",i:5,g:"s"},{s:"Nous (Léa et moi)",i:3,g:"es"},{s:"Nous (Marc et moi)",i:3,g:"s"},{s:"Tu (Thomas)",i:1,g:""},{s:"Je (Sophie)",i:0,g:"e"},{s:"Je (Daniel)",i:0,g:""},{s:"Vous (Madame Roy)",i:4,g:"e"}];
+const withPron = (p, f) => p==="j'" ? ["j'"+f] : [p+" "+f];
+function conjQ(label, v, forms){ const i=rnd(6), f=forms[i], p=subjFor(i,f); return {q:`${label} · « ${v} » : ${blank(p)}`, t:[f, ...withPron(p,f)], x:`${p==="j'"?"j'":p+" "}${f}`}; }
+function compoundQ(label, tense){
+  if (Math.random()<.5){ const v=pick(Object.keys(PP_ET)), s=pick(ET_SUBJ), f=AUX[tense].être[s.i]+" "+PP_ET[v]+s.g; return {q:`${label} · « ${v} » : ${s.s} ___`, t:[f], x:`${s.s.replace(/ \(.*/,"")} ${f} (être + agreement)`}; }
+  const v=pick(Object.keys(PP_AV)), i=rnd(6), a=AUX[tense].avoir[i], f=a+" "+PP_AV[v], p=subjFor(i,a); return {q:`${label} · « ${v} » : ${blank(p)}`, t:[f, ...withPron(p,f)], x:`${p==="j'"?"j'":p+" "}${f}`};
+}
+function frNum(n){ const u=["zéro","un","deux","trois","quatre","cinq","six","sept","huit","neuf","dix","onze","douze","treize","quatorze","quinze","seize"];
+  if (n<17) return u[n]; if (n<20) return "dix-"+u[n-10];
+  if (n<70){ const T={2:"vingt",3:"trente",4:"quarante",5:"cinquante",6:"soixante"}[Math.floor(n/10)], r=n%10; return r===0?T: r===1?T+" et un": T+"-"+u[r]; }
+  if (n<80) return n===71 ? "soixante et onze" : "soixante-"+frNum(n-60);
+  return n===80 ? "quatre-vingts" : "quatre-vingt-"+frNum(n-80); }
+const numVariants = s => [s, s.replace(/-/g," "), s.replace(/ /g,"-")];
+const NOUNS_G = [["fromage","m"],["nation","f"],["liberté","f"],["bureau","m"],["tourisme","m"],["baguette","f"],["patience","f"],["culture","f"],["vie","f"],["gouvernement","m"],["page","f"],["image","f"],["maison","f"],["silence","m"],["musée","m"],["voyage","m"],["chanson","f"],["télévision","f"],["moment","m"],["problème","m"],["eau","f"],["lumière","f"],["château","m"],["société","f"],["nature","f"],["avantage","m"]];
+const PLURALS = [["le bureau","les bureaux"],["le jeu","les jeux"],["l'animal","les animaux"],["le journal","les journaux"],["le pays","les pays"],["la voix","les voix"],["le nez","les nez"],["le gâteau","les gâteaux"],["le cheval","les chevaux"],["le travail","les travaux"],["le prix","les prix"],["l'hôpital","les hôpitaux"],["le chapeau","les chapeaux"],["la ville","les villes"],["le cadeau","les cadeaux"]];
+const FOOD = [["pain","m"],["viande","f"],["eau","f"],["fromage","m"],["salade","f"],["café","m"],["thé","m"],["lait","m"],["chocolat","m"],["soupe","f"],["huile","f"],["riz","m"],["confiture","f"],["argent","m"]];
+const COUNTRIES = [["France","en","de"],["Canada","au","du"],["Japon","au","du"],["États-Unis","aux","des"],["Italie","en","d'"],["Mexique","au","du"],["Philippines","aux","des"],["Iran","en","d'"],["Maroc","au","du"],["Espagne","en","d'"],["Brésil","au","du"],["Chine","en","de"],["Pays-Bas","aux","des"],["Allemagne","en","d'"],["Portugal","au","du"],["Inde","en","d'"],["Sénégal","au","du"],["Belgique","en","de"]];
+const CITIES = ["Paris","Montréal","Tokyo","Vancouver","Toronto","Lyon","Québec","Manille"];
+const POSS_N = [["sœur","f"],["frère","m"],["amie","fv"],["amis","p"],["voiture","f"],["appartement","m"],["école","fv"],["parents","p"],["maison","f"],["livre","m"],["histoire","fv"],["clés","p"]];
+const OWNERS = [["my",["mon","ma","mes"]],["your (tu)",["ton","ta","tes"]],["his / her",["son","sa","ses"]]];
+const DEMO = [["homme","cet"],["arbre","cet"],["hôtel","cet"],["femme","cette"],["livre","ce"],["enfants","ces"],["ville","cette"],["ami","cet"],["film","ce"],["photos","ces"]];
+const ADJ = {grand:["grand","grande","grands","grandes"], petit:["petit","petite","petits","petites"], heureux:["heureux","heureuse","heureux","heureuses"], actif:["actif","active","actifs","actives"], bon:["bon","bonne","bons","bonnes"], premier:["premier","première","premiers","premières"], beau:["beau","belle","beaux","belles"], nouveau:["nouveau","nouvelle","nouveaux","nouvelles"], vieux:["vieux","vieille","vieux","vieilles"], blanc:["blanc","blanche","blancs","blanches"], gentil:["gentil","gentille","gentils","gentilles"], cher:["cher","chère","chers","chères"], long:["long","longue","longs","longues"], sportif:["sportif","sportive","sportifs","sportives"], sérieux:["sérieux","sérieuse","sérieux","sérieuses"]};
+const ADJ_N = [["la maison",1],["les filles",3],["le garçon",0],["les livres",2],["une idée",1],["des amies",3],["un repas",0],["des voisins",2]];
+const OBJ_P = [["Marie","la"],["Paul","le"],["mes amis","les"],["le film","le"],["la radio","la"],["mes parents","les"],["ta sœur","la"],["le professeur","le"]];
+const COD_V = ["vois","regarde","attends","aime","écoute","cherche","invite","connais","appelle","aide"];
+const COI_V = ["parle","téléphone","écris","réponds","souris","envoie un message"];
+const IMPER = {parler:["parle","parlons","parlez"], finir:["finis","finissons","finissez"], attendre:["attends","attendons","attendez"], aller:["va","allons","allez"], être:["sois","soyons","soyez"], avoir:["aie","ayons","ayez"], faire:["fais","faisons","faites"], venir:["viens","venons","venez"], prendre:["prends","prenons","prenez"], écouter:["écoute","écoutons","écoutez"], savoir:["sache","sachons","sachez"], choisir:["choisis","choisissons","choisissez"]};
+const GER = {parler:"parlant", finir:"finissant", faire:"faisant", prendre:"prenant", lire:"lisant", écrire:"écrivant", voir:"voyant", manger:"mangeant", commencer:"commençant", avoir:"ayant", savoir:"sachant", attendre:"attendant", travailler:"travaillant", boire:"buvant", dire:"disant"};
+const GEN = {
+ "a1-noms": () => Math.random()<.5 ? (([n,g])=>({q:`Gender of « ${n} »?`, o:["masculin","féminin"], a:g==="m"?0:1, x:`${g==="m"?"le":"la"} ${n}`}))(pick(NOUNS_G)) : (([s,p])=>({q:`Plural of « ${s} »:`, t:[p, p.replace(/^les /,"")], x:p}))(pick(PLURALS)),
+ "a1-articles": () => { const [n,g]=pick(FOOD), v=vowelStart(n), k=rnd(3);
+   if (k===0){ const a=v?"l'":g==="m"?"le":"la"; return {q:`J'aime ${v?"___":"___ "}${n}. (in general)`, t:[a], x:`J'aime ${a}${v?"":" "}${n}.`}; }
+   if (k===1){ const a=v?"de l'":g==="m"?"du":"de la"; return {q:`Je prends ${v?"___":"___ "}${n}. (some)`, t:[a], x:`Je prends ${a}${v?"":" "}${n}.`}; }
+   const a=v?"d'":"de"; return {q:`Je ne prends pas ${v?"___":"___ "}${n}.`, t:[a], x:`After a negative: ${a}${v?"":" "}${n}.`}; },
+ "a1-etre-avoir": () => { const v=pick(["être","avoir"]); return conjQ("Présent", v, IRR[v]); },
+ "a1-er": () => { const v=pick(ER_V); return conjQ("Présent", v, END.pres_er.map(e=>v.slice(0,-2)+e)); },
+ "a1-adj": () => { const k=pick(Object.keys(ADJ)), [n,i]=pick(ADJ_N); return {q:`Make « ${k} » agree with « ${n} »:`, t:[ADJ[k][i]], x:`${n} … ${ADJ[k][i]}`}; },
+ "a1-lieux": () => { if (Math.random()<.2){ const c=pick(CITIES); return {q:`J'habite ___ ${c}.`, o:["à","en","au","aux"], a:0, x:"City → à."}; }
+   const [c,to,from]=pick(COUNTRIES);
+   if (Math.random()<.6){ const opts=["en","au","aux","à"]; return {q:`Je vais ___ ${c}.`, o:opts, a:opts.indexOf(to), x:`${to} ${c}`}; }
+   const opts=[...new Set([from,"de","du","des","d'"])].slice(0,4); return {q:`Je viens ___ ${c}.`, o:opts, a:opts.indexOf(from), x:`${from}${from==="d'"?"":" "}${c}`}; },
+ "a1-poss": () => { if (Math.random()<.3){ const [n,d]=pick(DEMO); return {q:`« this / these » + ${n} → ___ ${n}`, o:["ce","cet","cette","ces"], a:["ce","cet","cette","ces"].indexOf(d), x:`${d} ${n}`}; }
+   const [n,g]=pick(POSS_N), [o,f]=pick(OWNERS), ans = g==="p"?f[2]: g==="f"?f[1]: f[0]; return {q:`« ${o} » + ${n} → ___ ${n}`, o:f, a:f.indexOf(ans), x:g==="fv"?`${ans} ${n}: before a vowel, even for a feminine noun.`:`${ans} ${n}`}; },
+ "a1-nombres": () => { const n = Math.random()<.6 ? 60+rnd(40) : 17+rnd(43); const s=frNum(n); return {q:`Write ${n} in words:`, t:numVariants(s), x:s}; },
+ "a2-pc-avoir": () => { const v=pick(Object.keys(PP_AV)), i=rnd(6), a=AUX.pres.avoir[i], f=a+" "+PP_AV[v], p=subjFor(i,a); return {q:`Passé composé · « ${v} » : ${blank(p)}`, t:[f, ...withPron(p,f)], x:`${p==="j'"?"j'":p+" "}${f}`}; },
+ "a2-pc-etre": () => { const v=pick(Object.keys(PP_ET)), s=pick(ET_SUBJ), f=AUX.pres.être[s.i]+" "+PP_ET[v]+s.g; return {q:`Passé composé · « ${v} » : ${s.s} ___`, t:[f], x:`${f} (être + agreement)`}; },
+ "a2-imparfait": () => { const v=pick(Object.keys(IMP_STEM)); return conjQ("Imparfait", v, END.imp.map(e=>IMP_STEM[v]+e)); },
+ "a2-futur": () => { const v=pick(Object.keys(FUT_STEM)); return conjQ("Futur simple", v, END.fut.map(e=>FUT_STEM[v]+e)); },
+ "a2-irreguliers": () => { const v=pick(["aller","faire","venir","prendre","pouvoir","vouloir","devoir","dire","savoir","mettre","voir","boire","lire","écrire","partir"]); return conjQ("Présent", v, IRR[v]); },
+ "a2-cod-coi": () => { const [o,pr]=pick(OBJ_P);
+   const sj = v => vowelStart(v) ? "J'" : "Je ";
+   if (Math.random()<.55){ const v=pick(COD_V), p=(pr!=="les"&&vowelStart(v))?"l'":pr; return {q:`Replace with a pronoun: « ${sj(v)}${v} ${o}. » → Je ___ ${v}.`, t:[p], x:`Direct object → Je ${p}${p==="l'"?"":" "}${v}.`}; }
+   const people=OBJ_P.filter(x=>!/film|radio/.test(x[0])), [po,pp]=pick(people), v=pick(COI_V), p=pp==="les"?"leur":"lui", w=v.split(" "); return {q:`Replace with a pronoun: « ${sj(v)}${w[0]}${w.length>1?" "+w.slice(1).join(" "):""} à ${po}. » → Je ___ ${v}.`, t:[p], x:`à + person → Je ${p} ${v}.`}; },
+ "b1-pqp": () => compoundQ("Plus-que-parfait","imp"),
+ "b1-conditionnel": () => { const v=pick(Object.keys(FUT_STEM)); return conjQ("Conditionnel", v, END.imp.map(e=>FUT_STEM[v]+e)); },
+ "b1-subj": () => { const v=pick([...Object.keys(SUBJ_STEM),"être","avoir"]), i=rnd(6), f = SUBJ_FULL[v] ? SUBJ_FULL[v][i] : SUBJ_STEM[v][i===3||i===4?1:0]+END.subj[i], p=subjFor(i,f), lead=pick(["Il faut que","Je veux que","Bien que","Il est important que"]);
+   const pre = lead==="Je veux que" && i===0 ? "Il veut que" : lead; const qu = (p!=="j'" && vowelStart(p)) ? pre.slice(0,-3)+"qu'"+p+" ___" : `${pre} ${blank(p)}`;
+   return {q:`${qu} (${v}).`, t:[f, ...withPron(p,f)], x:`${(p!=="j'" && vowelStart(p)) ? "qu'"+p : "que "+(p==="j'"?"j'":p)}${p==="j'"?"":" "}${f}`}; },
+ "b1-imperatif": () => { const v=pick(Object.keys(IMPER)), k=rnd(3); return {q:`Impératif (${["tu","nous","vous"][k]}) · « ${v} » :`, t:[IMPER[v][k]], x:IMPER[v][k]+" !"}; },
+ "b2-futur-ant": () => compoundQ("Futur antérieur","fut"),
+ "b2-cond-passe": () => compoundQ("Conditionnel passé","cond"),
+ "b2-gerondif": () => { const v=pick(Object.keys(GER)); return {q:`Gérondif · « ${v} » : en ___`, t:[GER[v], "en "+GER[v]], x:"en "+GER[v]}; }
+};
+
 /* ============================== STATE ============================== */
 const KEY = "carnet-fr-v1";
-const defaults = () => ({done:{}, days:[], cards:{}, myCards:[], notes:[], plan:{}, examDate:"", drafts:{}, current:"a1", quizBest:{}, exams:[], feedback:{}, speak:{}, perWeek:5, weeksDone:{}, updatedAt:0});
+const defaults = () => ({done:{}, days:[], cards:{}, myCards:[], notes:[], plan:{}, examDate:"", drafts:{}, current:"a1", quizBest:{}, exams:[], feedback:{}, speak:{}, perWeek:5, weeksDone:{}, missed:{}, quizPct:{}, updatedAt:0});
 let S = defaults(), freshLocal = true;
 try { const raw = localStorage.getItem(KEY); if (raw) { S = Object.assign(S, JSON.parse(raw)); freshLocal = false; } } catch(e) {}
 let saveT, cloudT;
@@ -1322,7 +1601,8 @@ function vGrammar(id){
     if (b.t==="trap") return `<div class="block trap"><b>Piège · Watch out</b>${b.text}</div>`;
     return "";
   }).join("");
-  const best = S.quizBest[L.id];
+  const best = (S.quizPct||{})[L.id]; const qs = attemptFor(L);
+  const bankN = L.quiz.length + (EXTRA[L.id]||[]).length;
   return `<div class="gram">
     <nav class="lesson-list" aria-label="Lessons">${list}</nav>
     <article class="lesson">
@@ -1333,9 +1613,10 @@ function vGrammar(id){
       <p class="intro">${L.intro}</p>
       ${blocks}
       <section class="quiz" data-quiz="${L.id}">
-        <div class="section-title"><h3>Exercice</h3><span class="tag">${best!=null?`best score: ${best}/${L.quiz.length}`:"test yourself"}</span></div>
-        ${L.quiz.map((q,i)=>qHTML(q,L.id+"-"+i)).join("")}
-        <div class="score" data-score></div>
+        <div class="section-title"><h3>Exercice</h3><span class="tag">${best!=null?`best: ${best}% · `:""}${GEN[L.id]?"new questions every time":`${bankN} questions, mixed each time`}</span></div>
+        ${(S.missed[L.id]||[]).length?`<p class="muted" style="margin:0 0 4px;font-size:.88rem">Includes ${Math.min(2,S.missed[L.id].length)} you missed last time.</p>`:""}
+        ${qs.map((q,i)=>qHTML(q,L.id+"-"+i)).join("")}
+        <div class="score" data-score><button class="btn small" data-retry="${L.id}">↻ New questions</button></div>
       </section>
     </article></div>`;
 }
@@ -1344,19 +1625,34 @@ function qHTML(q,key){
   if (q.o) return `<div class="q" data-q="${key}"><p>${q.q}</p><div class="opts">${q.o.map((o,i)=>`<button class="opt" data-opt="${i}">${esc(o)}</button>`).join("")}</div><div class="fbwrap"></div></div>`;
   return `<div class="q" data-q="${key}"><p>${q.q}</p><form class="typein" data-typein><input id="in-${key}" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Your answer"><button class="btn small primary">Check</button></form><div class="accent-bar">${ACCENTS.map(a=>`<button type="button" data-acc="${a}">${a}</button>`).join("")}</div><div class="fbwrap"></div></div>`;
 }
-function findQ(key){ const i = key.lastIndexOf("-"); const lid = key.slice(0,i); const n=+key.slice(i+1);
-  for (const L of Object.values(LEVELS)){ const g=L.grammar.find(x=>x.id===lid); if(g) return {q:g.quiz[n], lesson:g}; } }
+/* Each attempt: up to 2 questions missed last time, then a random mix from the bank and fresh generated ones; options shuffled. */
+const QUIZ_N = 6; const attempts = {};
+const shuffled = a => { const b=[...a]; for(let i=b.length-1;i>0;i--){ const j=rnd(i+1); [b[i],b[j]]=[b[j],b[i]]; } return b; };
+function mixOpts(q){ if(!q.o) return q; const perm = shuffled([...q.o.keys()]); return {...q, o:perm.map(j=>q.o[j]), a:perm.indexOf(q.a)}; }
+function attemptFor(L){
+  if (attempts[L.id]) return attempts[L.id];
+  const bank = [...L.quiz, ...(EXTRA[L.id]||[])], g = GEN[L.id];
+  const missed = shuffled(S.missed[L.id]||[]).slice(0,2);
+  const seen = new Set(missed.map(q=>q.q)); const qs = [...missed];
+  const fromBank = shuffled(bank.filter(q=>!seen.has(q.q))).slice(0, Math.max(0, QUIZ_N - qs.length - (g?3:0)));
+  fromBank.forEach(q=>{ qs.push(q); seen.add(q.q); });
+  for (let tries=0; g && qs.length<QUIZ_N && tries<40; tries++){ const q=g(); if(!seen.has(q.q)){ qs.push(q); seen.add(q.q); } }
+  attempts[L.id] = shuffled(qs).map(mixOpts); return attempts[L.id];
+}
+function findQ(key){ const i = key.lastIndexOf("-"); const lid = key.slice(0,i); const n=+key.slice(i+1); return {q:(attempts[lid]||[])[n], lid}; }
 function answerQ(qEl, ok, msg, cls){
   qEl.dataset.answered = ok ? "1" : "0";
+  const {q, lid:qlid} = findQ(qEl.dataset.q);
+  if (q){ const m = (S.missed[qlid]||[]).filter(x=>x.q!==q.q); if(!ok) m.push({q:q.q, o:q.o, a:q.a, t:q.t, x:q.x}); S.missed[qlid] = m.slice(-6); }
   qEl.querySelector(".fbwrap").innerHTML = `<div class="fb ${cls||(ok?"ok":"no")}">${msg}</div>`;
   const quiz = qEl.closest("[data-quiz]"); const all=[...quiz.querySelectorAll(".q")]; const answered = all.filter(x=>x.dataset.answered!=null);
   if (answered.length===all.length){
     const right = all.filter(x=>x.dataset.answered==="1").length; const lid=quiz.dataset.quiz;
-    S.quizBest[lid] = Math.max(S.quizBest[lid]||0, right);
+    const pctNow = Math.round(100*right/all.length); S.quizPct[lid] = Math.max(S.quizPct[lid]||0, pctNow);
     const pass = right/all.length >= .7;
     if (pass && !S.done[lid]) { S.done[lid]=true; }
     markActive(); save();
-    quiz.querySelector("[data-score]").innerHTML = `<b style="font-size:1.3rem;font-family:var(--font-display)">${right}/${all.length}</b><span>${pass?"Très bien ! Lesson marked as learned.":"Read the lesson again, then retry."}</span><button class="btn small" data-retry="${lid}">Retry</button>`;
+    quiz.querySelector("[data-score]").innerHTML = `<b style="font-size:1.3rem;font-family:var(--font-display)">${right}/${all.length}</b><span>${pass?"Très bien !"+(S.done[lid]?" Lesson marked as learned.":""):"Read the lesson again, then try a new set."}</span><button class="btn small primary" data-retry="${lid}">↻ New questions</button>`;
     if (pass) setTimeout(()=>{ const lst=document.querySelector(`[data-lesson="${lid}"] .tick`); if(lst){lst.classList.add("on"); lst.innerHTML=CHECK;} renderStreak(); },50);
   }
 }
@@ -1719,7 +2015,7 @@ document.addEventListener("click", e=>{
   if (d.subTab){ sub[view]=d.subTab; render(); return; }
   if (d.lesson){ lessonSel[view]=d.lesson; render(); document.querySelector("article.lesson")?.scrollIntoView({block:"start"}); return; }
   if (d.done){ if(S.done[d.done]) delete S.done[d.done]; else { S.done[d.done]=true; markActive(); } save(); render(); return; }
-  if (d.retry){ render(); return; }
+  if (d.retry){ delete attempts[d.retry]; render(); document.querySelector("[data-quiz]")?.scrollIntoView({block:"start"}); return; }
   if (d.opt!=null){ const qEl=el.closest(".q"); if(qEl.dataset.answered!=null) return; const {q}=findQ(qEl.dataset.q); const ok=+d.opt===q.a;
     qEl.querySelectorAll(".opt").forEach((b,i)=>{ b.disabled=true; if(i===q.a) b.classList.add("right"); else if(b===el) b.classList.add("wrong"); });
     answerQ(qEl, ok, (ok?"Correct ! ":"Not quite. ")+esc(q.x||"")); return; }
