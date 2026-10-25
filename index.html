@@ -1533,8 +1533,8 @@ function formIndex(){
 const KEY = "carnet-fr-v1";
 const defaults = () => ({done:{}, days:[], cards:{}, myCards:[], notes:[], plan:{}, examDate:"", drafts:{}, current:"a1", quizBest:{}, exams:[], feedback:{}, speak:{}, perWeek:5, weeksDone:{}, missed:{}, quizPct:{}, updatedAt:0});
 /* Online accounts for the GitHub version: fill these in from your Supabase project (Settings → API). The anon key is meant to be public; row-level security keeps each person's data private. */
-const SUPABASE_URL = "";
-const SUPABASE_ANON_KEY = "";
+const SUPABASE_URL = "https://pzmvzaahfzqdnpomrelo.supabase.co";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB6bXZ6YWFoZnpxZG5wb21yZWxvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI5NDY1MjAsImV4cCI6MjEwODUyMjUyMH0.PMV8YJgaohKoG8iaR5yXoOSivg6exeBjdkC8IexZg6Q";
 const IN_CLAUDE = !!(window.claude && window.claude.use);
 const ACCOUNTS_ON = !IN_CLAUDE && !!SUPABASE_URL && !!SUPABASE_ANON_KEY;
 
@@ -1624,7 +1624,7 @@ async function doAuth(mode){
   if (!email || pass.length < 6){ acctMsg = "Enter your email and a password of at least 6 characters."; render(); return; }
   acctBusy = true; acctMsg = mode==="up" ? "Creating your account…" : "Signing in…"; render();
   try{
-    const r = mode==="up" ? await sb.auth.signUp({email, password:pass}) : await sb.auth.signInWithPassword({email, password:pass});
+    const r = mode==="up" ? await sb.auth.signUp({email, password:pass, options:{emailRedirectTo: location.origin + location.pathname}}) : await sb.auth.signInWithPassword({email, password:pass});
     if (r.error) throw r.error;
     if (!r.data.session){ acctMsg = "Account created. Check your email for a confirmation link, then come back and sign in."; }
     else { acctMsg = ""; await signedIn(r.data.session.user); toast("Signed in"); }
