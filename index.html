@@ -304,6 +304,56 @@ body.has-ai .no-ai{display:none}
 .qc-band .tip{background:var(--paper)}
 details.themes summary{cursor:pointer;margin-top:8px;list-style-position:inside}
 
+/* conjugaison */
+.conj-search{display:flex;flex-direction:column;gap:10px;margin-bottom:18px}
+.conj-search input{width:100%;max-width:520px;padding:10px 14px;border:1.5px solid var(--rule-strong);border-radius:10px;background:var(--surface);font-size:1.05rem}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{border:1.5px solid var(--rule-strong);background:var(--surface);border-radius:999px;padding:4px 12px;cursor:pointer;font-family:var(--font-read);font-size:.95rem}
+.chip:hover{border-color:var(--accent)}
+.chip.on{background:var(--ink);color:var(--surface);border-color:var(--ink)}
+.verbhead{display:flex;gap:18px 28px;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;padding:18px 20px;background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius);margin-bottom:14px}
+.verbhead h3{font-size:clamp(1.8rem,5vw,2.6rem);font-weight:800;display:flex;gap:10px;align-items:center}
+.vfacts{display:flex;gap:18px;flex-wrap:wrap;margin:0}
+.vfacts div{display:flex;flex-direction:column}
+.vfacts dt{font-family:var(--font-mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-soft)}
+.vfacts dd{margin:0;font-family:var(--font-read);font-weight:600;font-size:1.05rem}
+.tenses{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(250px,100%),1fr));gap:12px;margin:14px 0}
+.tense{background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius);padding:12px 14px}
+.tense header{display:flex;justify-content:space-between;gap:8px;align-items:flex-start;margin-bottom:6px;padding-bottom:6px;border-bottom:1px solid var(--rule)}
+.tense h4{font-size:1rem}.tense header .muted{font-size:.78rem}
+.tense ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:3px}
+.cform{font-family:var(--font-read);font-size:1.02rem}
+.covered .cform{filter:blur(6px);cursor:pointer;user-select:none;transition:filter .15s}
+.covered .cform.shown{filter:none}
+.conjquiz{margin:14px 0}
+.cq{display:flex;gap:8px 12px;align-items:center;flex-wrap:wrap;padding:7px 0;border-bottom:1px solid var(--rule)}
+.cq label{flex:1;min-width:200px;font-family:var(--font-read)}
+.cq input{width:180px;max-width:100%;padding:6px 10px;border:1.5px solid var(--rule-strong);border-radius:8px;background:var(--surface);font-family:var(--font-read)}
+.ok-t{color:var(--ok);font-weight:700}.no-t{color:var(--bad);font-weight:700}
+
+/* translator */
+.trbtn{font-size:.78rem;font-weight:700;padding:3px 12px;border-radius:999px;border:1.5px solid var(--accent);background:var(--accent);color:var(--accent-ink);cursor:pointer;white-space:nowrap}
+.trbubble{position:fixed;z-index:30;padding:6px 12px;border-radius:999px;border:0;background:var(--ink);color:var(--surface);font-weight:700;font-size:.85rem;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.18)}
+.trpanel{position:fixed;z-index:25;right:max(16px, env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));width:min(400px, calc(100vw - 32px));max-height:min(72vh, 620px);overflow:auto;background:var(--surface);border:1.5px solid var(--ink);border-radius:14px;box-shadow:0 12px 40px rgba(0,0,0,.22);padding:14px 16px;display:flex;flex-direction:column;gap:10px}
+.tr-head{display:flex;gap:10px;align-items:center}.tr-head b{font-family:var(--font-display);font-size:1.1rem;margin-right:auto}
+.tr-form{display:flex;gap:6px;flex-wrap:wrap}
+.tr-form input{flex:1;min-width:0;padding:8px 10px;border:1.5px solid var(--rule-strong);border-radius:8px;background:var(--paper);font-family:var(--font-read)}
+.tr-body{display:flex;flex-direction:column;gap:10px}
+.tr-sec{display:flex;flex-direction:column;gap:5px;padding-bottom:8px;border-bottom:1px dotted var(--rule-strong)}
+.tr-main{font-family:var(--font-read);font-size:1.35rem;font-weight:600;display:flex;gap:8px;align-items:center}
+.tr-hit{display:flex;gap:8px;align-items:center;font-size:.92rem}.tr-hit span:nth-child(2){flex:1;min-width:0}
+.tr-links{flex-direction:row;flex-wrap:wrap;gap:6px 14px;font-size:.88rem}
+
+/* account + profiles */
+.acct{font-family:var(--font-mono);font-size:.72rem;padding:2px 10px;border-radius:999px;border:1px solid var(--ink);background:var(--surface);color:var(--ink);cursor:pointer;max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.acct:hover{background:var(--ink);color:var(--surface)}
+.profiles{display:flex;flex-direction:column;gap:8px}
+.prof{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:8px 10px;border:1px solid var(--rule);border-radius:8px}
+.prof.on{border-color:var(--ink);box-shadow:inset 3px 0 0 var(--margin)}
+.pname{flex:1;min-width:120px;text-align:left;border:0;background:none;font:inherit;font-weight:700;cursor:pointer;color:var(--ink);padding:4px 0}
+.pname:disabled{cursor:default;color:var(--ink-soft)}
+.ac-in{padding:7px 10px;border:1.5px solid var(--rule-strong);border-radius:8px;background:var(--surface)}
+
 /* exams */
 .exams{grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}
 .exam-card{display:flex;flex-direction:column;gap:6px;padding:18px;background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius);min-height:190px}
@@ -361,7 +411,7 @@ blockquote.doc{margin:8px 0 10px;padding:14px 16px;background:var(--surface);bor
 <header class="top">
   <div class="wrap">
     <div class="brand"><h1>Carnet<span>.</span></h1><small>de l'A1 au B2</small></div>
-    <div class="streak"><span id="streak" class="streak"></span><span class="sync" id="sync" data-st="local" title="Progress saves in this browser.">On this device</span></div>
+    <div class="streak"><span id="streak" class="streak"></span><span class="sync" id="sync" data-st="local" title="Progress saves in this browser.">On this device</span><button class="acct" id="acct" data-go="compte" hidden></button><button class="trbtn" data-tropen title="Translate a word (Alt + T)">Traduire</button></div>
     <nav class="main" id="nav" aria-label="Sections"></nav>
   </div>
 </header>
@@ -1365,19 +1415,149 @@ const GEN = {
  "b2-gerondif": () => { const v=pick(Object.keys(GER)); return {q:`Gérondif · « ${v} » : en ___`, t:[GER[v], "en "+GER[v]], x:"en "+GER[v]}; }
 };
 
+/* ---------- conjugation engine ---------- */
+const VERB_LIST = [
+ ["être","to be"],["avoir","to have"],["aller","to go"],["faire","to do, to make"],["venir","to come"],["prendre","to take"],["pouvoir","can, to be able to"],["vouloir","to want"],["devoir","must, to have to"],["savoir","to know (facts)"],["dire","to say"],["mettre","to put"],["voir","to see"],["boire","to drink"],["lire","to read"],["écrire","to write"],["partir","to leave"],["sortir","to go out"],["dormir","to sleep"],["servir","to serve"],["sentir","to feel, to smell"],["ouvrir","to open"],["offrir","to offer, to give"],["découvrir","to discover"],["connaître","to know (people, places)"],["reconnaître","to recognize"],["paraître","to seem"],["disparaître","to disappear"],["naître","to be born"],["mourir","to die"],["vivre","to live"],["suivre","to follow"],["croire","to believe"],["recevoir","to receive"],["courir","to run"],["conduire","to drive"],["construire","to build"],["traduire","to translate"],["plaire","to please"],["rire","to laugh"],["sourire","to smile"],["craindre","to fear"],["éteindre","to turn off"],["peindre","to paint"],["battre","to beat"],["devenir","to become"],["revenir","to come back"],["tenir","to hold"],["obtenir","to obtain"],["apprendre","to learn"],["comprendre","to understand"],["permettre","to allow"],["promettre","to promise"],["décrire","to describe"],["s'inscrire","to sign up"],["apercevoir","to notice"],["falloir","to be necessary (il faut)"],["pleuvoir","to rain"],
+ ["parler","to speak"],["aimer","to like, to love"],["habiter","to live (somewhere)"],["travailler","to work"],["regarder","to watch"],["écouter","to listen"],["chercher","to look for"],["trouver","to find"],["donner","to give"],["jouer","to play"],["penser","to think"],["demander","to ask"],["arriver","to arrive"],["entrer","to enter"],["rester","to stay"],["tomber","to fall"],["monter","to go up"],["rentrer","to go home"],["retourner","to return"],["passer","to pass, to spend (time)"],["porter","to wear, to carry"],["montrer","to show"],["marcher","to walk"],["chanter","to sing"],["danser","to dance"],["étudier","to study"],["oublier","to forget"],["préparer","to prepare"],["utiliser","to use"],["aider","to help"],["acheter","to buy"],["appeler","to call"],["jeter","to throw"],["lever","to raise"],["emmener","to take (someone)"],["préférer","to prefer"],["espérer","to hope"],["répéter","to repeat"],["payer","to pay"],["essayer","to try"],["envoyer","to send"],["nettoyer","to clean"],["manger","to eat"],["voyager","to travel"],["nager","to swim"],["changer","to change"],["partager","to share"],["commencer","to begin"],["avancer","to move forward"],["annoncer","to announce"],["télécharger","to download"],["décider","to decide"],["continuer","to continue"],["créer","to create"],["gagner","to win, to earn"],["dépenser","to spend (money)"],["économiser","to save (money)"],["réserver","to book"],["visiter","to visit (a place)"],["fermer","to close"],["laisser","to leave, to let"],["apporter","to bring"],["emprunter","to borrow"],["rencontrer","to meet"],["raconter","to tell"],["expliquer","to explain"],["inviter","to invite"],["proposer","to suggest"],["accepter","to accept"],["refuser","to refuse"],["organiser","to organize"],["garder","to keep"],["coûter","to cost"],["protéger","to protect"],["améliorer","to improve"],["déménager","to move house"],["finir","to finish"],["choisir","to choose"],["réussir","to succeed, to pass"],["réfléchir","to think, to reflect"],["grandir","to grow up"],["remplir","to fill"],["agir","to act"],["guérir","to heal"],["vendre","to sell"],["attendre","to wait"],["entendre","to hear"],["répondre","to answer"],["perdre","to lose"],["descendre","to go down"],["rendre","to give back"],["dépendre","to depend"],
+ ["se lever","to get up"],["se laver","to wash (oneself)"],["s'habiller","to get dressed"],["se coucher","to go to bed"],["se réveiller","to wake up"],["se promener","to go for a walk"],["se reposer","to rest"],["se dépêcher","to hurry"],["s'appeler","to be called"],["s'amuser","to have fun"],["s'inquiéter","to worry"],["se souvenir","to remember"],["se sentir","to feel"],["se plaindre","to complain"],["s'adapter","to adapt"],["s'installer","to settle in"]
+];
+const VERB_EN = Object.fromEntries(VERB_LIST);
+const IRV = {
+ être:{pres:["suis","es","est","sommes","êtes","sont"], imp:"ét", fut:"ser", subj:["sois","sois","soit","soyons","soyez","soient"], imper:["sois","soyons","soyez"], pp:"été", ppr:"étant"},
+ avoir:{pres:["ai","as","a","avons","avez","ont"], fut:"aur", subj:["aie","aies","ait","ayons","ayez","aient"], imper:["aie","ayons","ayez"], pp:"eu", ppr:"ayant"},
+ aller:{pres:["vais","vas","va","allons","allez","vont"], fut:"ir", subjStem:"aill", imper:["va","allons","allez"], pp:"allé"},
+ faire:{pres:["fais","fais","fait","faisons","faites","font"], fut:"fer", subj:["fasse","fasses","fasse","fassions","fassiez","fassent"], pp:"fait"},
+ venir:{pres:["viens","viens","vient","venons","venez","viennent"], fut:"viendr", pp:"venu"},
+ prendre:{pres:["prends","prends","prend","prenons","prenez","prennent"], fut:"prendr", pp:"pris"},
+ pouvoir:{pres:["peux","peux","peut","pouvons","pouvez","peuvent"], fut:"pourr", subj:["puisse","puisses","puisse","puissions","puissiez","puissent"], pp:"pu", noImper:true},
+ vouloir:{pres:["veux","veux","veut","voulons","voulez","veulent"], fut:"voudr", subjStem:"veuill", imper:["veuille","veuillons","veuillez"], pp:"voulu"},
+ devoir:{pres:["dois","dois","doit","devons","devez","doivent"], fut:"devr", pp:"dû", noImper:true},
+ savoir:{pres:["sais","sais","sait","savons","savez","savent"], fut:"saur", subj:["sache","saches","sache","sachions","sachiez","sachent"], imper:["sache","sachons","sachez"], pp:"su", ppr:"sachant"},
+ dire:{pres:["dis","dis","dit","disons","dites","disent"], fut:"dir", pp:"dit"},
+ mettre:{pres:["mets","mets","met","mettons","mettez","mettent"], fut:"mettr", pp:"mis"},
+ voir:{pres:["vois","vois","voit","voyons","voyez","voient"], fut:"verr", pp:"vu"},
+ boire:{pres:["bois","bois","boit","buvons","buvez","boivent"], fut:"boir", pp:"bu"},
+ lire:{pres:["lis","lis","lit","lisons","lisez","lisent"], fut:"lir", pp:"lu"},
+ écrire:{pres:["écris","écris","écrit","écrivons","écrivez","écrivent"], fut:"écrir", pp:"écrit"},
+ partir:{pres:["pars","pars","part","partons","partez","partent"], fut:"partir", pp:"parti"},
+ dormir:{pres:["dors","dors","dort","dormons","dormez","dorment"], fut:"dormir", pp:"dormi"},
+ servir:{pres:["sers","sers","sert","servons","servez","servent"], fut:"servir", pp:"servi"},
+ ouvrir:{pres:["ouvre","ouvres","ouvre","ouvrons","ouvrez","ouvrent"], fut:"ouvrir", pp:"ouvert"},
+ connaître:{pres:["connais","connais","connaît","connaissons","connaissez","connaissent"], fut:"connaîtr", pp:"connu"},
+ naître:{pres:["nais","nais","naît","naissons","naissez","naissent"], fut:"naîtr", pp:"né"},
+ mourir:{pres:["meurs","meurs","meurt","mourons","mourez","meurent"], fut:"mourr", pp:"mort"},
+ vivre:{pres:["vis","vis","vit","vivons","vivez","vivent"], fut:"vivr", pp:"vécu"},
+ suivre:{pres:["suis","suis","suit","suivons","suivez","suivent"], fut:"suivr", pp:"suivi"},
+ croire:{pres:["crois","crois","croit","croyons","croyez","croient"], fut:"croir", pp:"cru"},
+ recevoir:{pres:["reçois","reçois","reçoit","recevons","recevez","reçoivent"], fut:"recevr", pp:"reçu"},
+ courir:{pres:["cours","cours","court","courons","courez","courent"], fut:"courr", pp:"couru"},
+ conduire:{pres:["conduis","conduis","conduit","conduisons","conduisez","conduisent"], fut:"conduir", pp:"conduit"},
+ plaire:{pres:["plais","plais","plaît","plaisons","plaisez","plaisent"], fut:"plair", pp:"plu"},
+ rire:{pres:["ris","ris","rit","rions","riez","rient"], fut:"rir", pp:"ri"},
+ craindre:{pres:["crains","crains","craint","craignons","craignez","craignent"], fut:"craindr", pp:"craint"},
+ éteindre:{pres:["éteins","éteins","éteint","éteignons","éteignez","éteignent"], fut:"éteindr", pp:"éteint"},
+ battre:{pres:["bats","bats","bat","battons","battez","battent"], fut:"battr", pp:"battu"}
+};
+/* derived verbs: [base, replace this start, with this] */
+const DERIV = {devenir:["venir","","de"], revenir:["venir","","re"], tenir:["venir","v","t"], obtenir:["venir","v","obt"], soutenir:["venir","v","sout"], appartenir:["venir","v","appart"], souvenir:["venir","","sou"], prévenir:["venir","","pré"],
+ apprendre:["prendre","","ap"], comprendre:["prendre","","com"], surprendre:["prendre","","sur"], reprendre:["prendre","","re"], permettre:["mettre","","per"], promettre:["mettre","","pro"], remettre:["mettre","","re"], admettre:["mettre","","ad"],
+ décrire:["écrire","","d"], inscrire:["écrire","écr","inscr"], sortir:["partir","par","sor"], repartir:["partir","","re"], sentir:["partir","par","sen"], ressentir:["partir","par","ressen"], mentir:["partir","par","men"],
+ offrir:["ouvrir","ouvr","offr"], couvrir:["ouvrir","","c"], découvrir:["ouvrir","","déc"], souffrir:["ouvrir","ouvr","souffr"], reconnaître:["connaître","","re"], paraître:["connaître","conn","par"], apparaître:["connaître","conn","appar"], disparaître:["connaître","conn","dispar"],
+ construire:["conduire","condu","constru"], produire:["conduire","condu","produ"], traduire:["conduire","condu","tradu"], réduire:["conduire","condu","rédu"], détruire:["conduire","condu","détru"], revoir:["voir","","re"], relire:["lire","","re"], sourire:["rire","","sou"], poursuivre:["suivre","","pour"], survivre:["vivre","","sur"],
+ apercevoir:["recevoir","re","aper"], décevoir:["recevoir","re","dé"], peindre:["éteindre","ét","p"], atteindre:["éteindre","ét","att"], plaindre:["craindre","cr","pl"], combattre:["battre","","com"], parcourir:["courir","","par"], déplaire:["plaire","","dé"], refaire:["faire","","re"], défaire:["faire","","dé"]};
+const ETRE_VERBS = new Set(["aller","venir","devenir","revenir","partir","repartir","sortir","arriver","entrer","rentrer","rester","tomber","monter","descendre","retourner","naître","mourir"]);
+const DOUBLE_CONS = new Set(["appeler","rappeler","jeter","rejeter","projeter","épeler","renouveler"]);
+const FUT_IRREG = {envoyer:"enverr", renvoyer:"renverr"};
+const PERS = ["je","tu","il","nous","vous","ils"];
+const RPRON = ["me","te","se","nous","vous","se"];
+const VOW = /^[aeiouyéèêëâàîïôûœh]/i;
+function specFor(v){
+  if (IRV[v]) return {...IRV[v], group:3};
+  if (DERIV[v]){ const [b,from,to] = DERIV[v]; const base = IRV[b]; const f = s => typeof s==="string" ? (s.startsWith(from) ? to+s.slice(from.length) : s) : Array.isArray(s) ? s.map(f) : s;
+    const out = {group:3}; for (const k in base) out[k] = f(base[k]); return out; }
+  if (/er$/.test(v)){ const s=v.slice(0,-2); let st=s, fut=v, nous=s+"ons";
+    if (DOUBLE_CONS.has(v)){ st=s+s.slice(-1); fut=st+"er"; }
+    else if (/[oua]y$/.test(s)){ st=s.slice(0,-1)+"i"; fut=FUT_IRREG[v]||st+"er"; }
+    else if (/e[^aeiouyéèêë]$/.test(s)){ st=s.replace(/e([^aeiouyéèêë])$/,"è$1"); fut=st+"er"; }
+    else if (/é[^aeiouyéèêë]+$/.test(s)){ st=s.replace(/é([^aeiouyéèêë]+)$/,"è$1"); }
+    if (/g$/.test(s)) nous=s+"eons"; if (/c$/.test(s)) nous=s.slice(0,-1)+"çons";
+    return {pres:[st+"e",st+"es",st+"e",nous,s+"ez",st+"ent"], fut, pp:s+"é", group:1}; }
+  if (/ir$/.test(v)){ const s=v.slice(0,-2); return {pres:[s+"is",s+"is",s+"it",s+"issons",s+"issez",s+"issent"], fut:v, pp:s+"i", group:2}; }
+  if (/re$/.test(v)){ const s=v.slice(0,-2); return {pres:[s+"s",s+"s",s,s+"ons",s+"ez",s+"ent"], fut:v.slice(0,-1), pp:s+"u", group:3}; }
+  return null;
+}
+function conjugate(input){
+  let v = input.trim().toLowerCase().replace(/’/g,"'"); let refl = false;
+  if (/^se /.test(v)){ refl=true; v=v.slice(3); } else if (/^s'/.test(v)){ refl=true; v=v.slice(2); }
+  if (v==="falloir") return {inf:"falloir", impersonal:true, aux:"avoir", pp:"fallu", ppr:"", known:true, t:{pres:["il faut"], pc:["il a fallu"], imp:["il fallait"], pqp:["il avait fallu"], fp:["il va falloir"], fut:["il faudra"], cond:["il faudrait"], cp:["il aurait fallu"], subj:["qu'il faille"], imper:null}};
+  if (v==="pleuvoir") return {inf:"pleuvoir", impersonal:true, aux:"avoir", pp:"plu", ppr:"pleuvant", known:true, t:{pres:["il pleut"], pc:["il a plu"], imp:["il pleuvait"], pqp:["il avait plu"], fp:["il va pleuvoir"], fut:["il pleuvra"], cond:["il pleuvrait"], cp:["il aurait plu"], subj:["qu'il pleuve"], imper:null}};
+  const sp = specFor(v); if (!sp) return null;
+  const name = (refl ? (VOW.test(v)?"s'":"se ") : "") + v;
+  const known = !!(IRV[v] || DERIV[v] || VERB_EN[name] || VERB_EN[v]);
+  const pres = sp.pres;
+  const impStem = sp.imp || pres[3].replace(/ons$/,"");
+  const imp = END.imp.map(e => (e[0]==="i" ? impStem.replace(/e$/,"").replace(/ç$/,"c") : impStem) + e);
+  const fut = END.fut.map(e => sp.fut + e), cond = END.imp.map(e => sp.fut + e);
+  const ilsStem = sp.subjStem || pres[5].replace(/ent$/,"");
+  const subj = sp.subj || [ilsStem+"e", ilsStem+"es", ilsStem+"e", imp[3], imp[4], ilsStem+"ent"];
+  let imper = sp.noImper ? null : (sp.imper || [pres[1].endsWith("es") ? pres[1].slice(0,-1) : pres[1], pres[3], pres[4]]);
+  const aux = (refl || ETRE_VERBS.has(v)) ? "être" : "avoir";
+  const pp = sp.pp, ppr = sp.ppr || pres[3].replace(/ons$/,"") + "ant";
+  const agr = aux==="être" ? ["(e)","(e)","(e)","(e)s","(e)(s)","(e)s"] : ["","","","","",""];
+  const rp = (i, form) => refl ? (["me","te","se"].includes(RPRON[i]) && VOW.test(form) ? RPRON[i][0]+"'" : RPRON[i]+" ") : "";
+  const row = (i, form) => { const chunk = rp(i, form) + form; return (i===0 && VOW.test(chunk) ? "j'" : PERS[i]+" ") + chunk; };
+  const simple = arr => arr.map((f,i) => row(i, f));
+  const comp = auxT => auxT.map((a,i) => row(i, a) + " " + pp + agr[i]);
+  const subjRows = subj.map((f,i) => { const r = row(i, f); return (/^(il|ils) /.test(r) ? "qu'" : "que ") + r; });
+  const reflImp = ["toi","nous","vous"];
+  const imperRows = imper ? imper.map((f,k) => refl ? f + "-" + reflImp[k] : f) : null;
+  const allerF = IRV.aller.pres;
+  return {inf:name, base:v, refl, known, group:sp.group, aux, pp, ppr, en:VERB_EN[name]||VERB_EN[v]||"",
+    raw:{pres, imp, fut, cond, subj, imper},
+    t:{pres:simple(pres), pc:comp(AUX.pres[aux]), imp:simple(imp), pqp:comp(AUX.imp[aux]), fp:allerF.map((a,i)=>PERS[i]+" "+a+" "+rp(i, v)+v), fut:simple(fut), cond:simple(cond), cp:comp(AUX.cond[aux]), subj:subjRows, imper:imperRows}};
+}
+const TENSES = [["pres","Présent","now, habits, facts"],["pc","Passé composé","completed past events"],["imp","Imparfait","past background, habits"],["pqp","Plus-que-parfait","the past before the past"],["fp","Futur proche","going to…"],["fut","Futur simple","will…"],["cond","Conditionnel présent","would…, polite requests"],["cp","Conditionnel passé","would have…"],["subj","Subjonctif présent","after il faut que, bien que…"],["imper","Impératif","orders and advice"]];
+let FORM_INDEX = null;
+function formIndex(){
+  if (FORM_INDEX) return FORM_INDEX; FORM_INDEX = {};
+  const add = (f, inf, label) => { if (!f) return; const k = f.toLowerCase(); (FORM_INDEX[k] = FORM_INDEX[k] || []).push([inf, label]); };
+  const TL = {pres:"présent", imp:"imparfait", fut:"futur simple", cond:"conditionnel", subj:"subjonctif"};
+  VERB_LIST.forEach(([inf]) => { const c = conjugate(inf); if (!c || c.impersonal) return;
+    Object.keys(TL).forEach(k => c.raw[k].forEach((f,i) => add(f, c.inf, `${TL[k]} · ${PERS[i]}`)));
+    if (c.raw.imper) c.raw.imper.forEach((f,i) => add(f, c.inf, `impératif · ${["tu","nous","vous"][i]}`));
+    add(c.pp, c.inf, "participe passé"); add(c.ppr, c.inf, "participe présent"); });
+  return FORM_INDEX;
+}
+
 /* ============================== STATE ============================== */
 const KEY = "carnet-fr-v1";
 const defaults = () => ({done:{}, days:[], cards:{}, myCards:[], notes:[], plan:{}, examDate:"", drafts:{}, current:"a1", quizBest:{}, exams:[], feedback:{}, speak:{}, perWeek:5, weeksDone:{}, missed:{}, quizPct:{}, updatedAt:0});
+/* Online accounts for the GitHub version: fill these in from your Supabase project (Settings → API). The anon key is meant to be public; row-level security keeps each person's data private. */
+const SUPABASE_URL = "";
+const SUPABASE_ANON_KEY = "";
+const IN_CLAUDE = !!(window.claude && window.claude.use);
+const ACCOUNTS_ON = !IN_CLAUDE && !!SUPABASE_URL && !!SUPABASE_ANON_KEY;
+
+/* Profiles: several people on one device, each with their own saved progress */
+const lsGet = k => { try{ return localStorage.getItem(k); }catch(e){ return null; } };
+const lsSet = (k,v) => { try{ localStorage.setItem(k,v); }catch(e){} };
+let profiles; try{ profiles = JSON.parse(lsGet("carnet-fr-profiles")||"null"); }catch(e){}
+if (!Array.isArray(profiles) || !profiles.length) profiles = [{id:"default", name:"Moi"}];
+let activeProfile = lsGet("carnet-fr-active") || "default"; if (!profiles.some(p=>p.id===activeProfile)) activeProfile = profiles[0].id;
+let account = null;
+const keyFor = () => account ? KEY+":u:"+account.id : activeProfile==="default" ? KEY : KEY+":"+activeProfile;
 let S = defaults(), freshLocal = true;
-try { const raw = localStorage.getItem(KEY); if (raw) { S = Object.assign(S, JSON.parse(raw)); freshLocal = false; } } catch(e) {}
+function loadState(){ S = defaults(); freshLocal = true; const raw = lsGet(keyFor()); if (raw){ try{ S = Object.assign(S, JSON.parse(raw)); freshLocal = false; }catch(e){} } }
+loadState();
 let saveT, cloudT;
-function writeLocal(){ try{ localStorage.setItem(KEY, JSON.stringify(S)); }catch(e){} }
+function writeLocal(){ lsSet(keyFor(), JSON.stringify(S)); }
+function flushLocal(){ if (saveT){ clearTimeout(saveT); saveT=null; writeLocal(); } }
 function save(){ S.updatedAt = Date.now(); clearTimeout(saveT); saveT = setTimeout(writeLocal, 250); clearTimeout(cloudT); cloudT = setTimeout(pushCloud, 2500); }
 
 /* ---------- sync across devices (db capability, private per person) ---------- */
 const cloud = {ref:null, ready:false, busy:false, again:false, status:"local"};
 function setSync(st){ cloud.status = st; const el=document.getElementById("sync"); if(!el) return;
-  const m = {local:["On this device","Progress saves in this browser. Use Notes → Backup to move it."], syncing:["Syncing…","Saving to your Claude account."], synced:["Synced","Saved to your Claude account. Open this page on any device you're signed in on."], readonly:["On this device","Your access to this page can't save to your account, so progress stays in this browser."], error:["Sync paused","Couldn't reach your account just now. Progress is still saved in this browser."]}[st];
+  const m = {local:["On this device","Progress saves in this browser. Use Notes → Backup to move it."], syncing:["Syncing…","Saving to your account."], synced:["Synced","Saved online to your account. Sign in on any device to carry on."], readonly:["On this device","Your access to this page can't save to your account, so progress stays in this browser."], error:["Sync paused","Couldn't reach your account just now. Progress is still saved in this browser."]}[st];
   el.textContent = m[0]; el.title = m[1]; el.dataset.st = st; }
 async function initCloud(){
   if (!window.claude || !window.claude.use) return;
@@ -1413,6 +1593,75 @@ async function pushCloud(){
   finally{ cloud.busy=false; if(cloud.again){ cloud.again=false; pushCloud(); } }
 }
 document.addEventListener("visibilitychange", ()=>{ if (document.visibilityState==="visible" && cloud.ready) pullCloud(); });
+
+/* ---------- profiles + online accounts (GitHub version) ---------- */
+let sb = null, acctMsg = "", acctBusy = false, offerImport = false, confirmProfileDel = null, renamingProfile = null;
+function resetSession(){ Object.keys(attempts).forEach(k=>delete attempts[k]); queue=[]; curCard=null; noteSel=null; run=null; confirmDel=false; }
+function switchProfile(id){ flushLocal(); activeProfile=id; lsSet("carnet-fr-active", id); loadState(); resetSession(); render(); toast("Switched to "+(profiles.find(p=>p.id===id)||{}).name); }
+function saveProfiles(){ lsSet("carnet-fr-profiles", JSON.stringify(profiles)); }
+function renderAcct(){ const b=document.getElementById("acct"); if(!b) return; if (IN_CLAUDE){ b.hidden=true; return; }
+  b.hidden=false; b.textContent = account ? account.email : (profiles.find(p=>p.id===activeProfile)||{name:"Moi"}).name; b.title = account ? "Signed in. Open your account" : "Switch profile or sign in"; }
+function loadSupabase(){ return new Promise((res,rej)=>{ if (window.supabase) return res(); const s=document.createElement("script"); s.src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"; s.onload=res; s.onerror=rej; document.head.appendChild(s); }); }
+function supaRef(uid){ return {
+  get: async () => { const {data, error} = await sb.from("progress").select("data,updated_at").eq("user_id", uid).maybeSingle(); if (error) throw error;
+    return data ? {exists:true, data:()=>({json:JSON.stringify(data.data), updatedAt:+data.updated_at||0})} : {exists:false, data:()=>null}; },
+  set: async ({json, updatedAt}) => { const {error} = await sb.from("progress").upsert({user_id:uid, data:JSON.parse(json), updated_at:updatedAt}); if (error) throw error; } }; }
+async function initAccounts(){
+  renderAcct(); if (!ACCOUNTS_ON) return;
+  try{ await loadSupabase(); sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    const {data} = await sb.auth.getSession(); if (data && data.session) await signedIn(data.session.user);
+  }catch(e){ acctMsg = "Couldn't reach the account service. You can still study; progress saves on this device."; if(view==="compte") render(); }
+}
+async function signedIn(user){
+  flushLocal(); account = {id:user.id, email:user.email||"account"}; loadState(); resetSession();
+  cloud.ref = supaRef(user.id); cloud.ready = false;
+  let remoteExists = false; try{ remoteExists = (await cloud.ref.get()).exists; }catch(e){}
+  offerImport = !remoteExists && freshLocal;
+  await pullCloud(); render();
+}
+async function doAuth(mode){
+  const email = document.getElementById("ac-email").value.trim(), pass = document.getElementById("ac-pass").value;
+  if (!email || pass.length < 6){ acctMsg = "Enter your email and a password of at least 6 characters."; render(); return; }
+  acctBusy = true; acctMsg = mode==="up" ? "Creating your account…" : "Signing in…"; render();
+  try{
+    const r = mode==="up" ? await sb.auth.signUp({email, password:pass}) : await sb.auth.signInWithPassword({email, password:pass});
+    if (r.error) throw r.error;
+    if (!r.data.session){ acctMsg = "Account created. Check your email for a confirmation link, then come back and sign in."; }
+    else { acctMsg = ""; await signedIn(r.data.session.user); toast("Signed in"); }
+  }catch(e){ acctMsg = /invalid login/i.test(e.message||"") ? "That email and password don't match. Check them and try again." : /registered/i.test(e.message||"") ? "This email already has an account. Use Sign in instead." : /confirm/i.test(e.message||"") ? "Confirm your email first: open the link we sent you, then sign in." : "Couldn't do that: "+(e.message||"unknown error"); }
+  acctBusy = false; render();
+}
+async function signOut(){
+  clearTimeout(cloudT); await pushCloud(); flushLocal();
+  try{ await sb.auth.signOut(); }catch(e){}
+  account=null; cloud.ref=null; cloud.ready=false; offerImport=false; loadState(); resetSession(); setSync("local"); go("today"); toast("Signed out");
+}
+function vAccount(){
+  if (IN_CLAUDE) return `<div class="empty">In Claude, your progress already saves to your Claude account.</div>`;
+  const cur = profiles.find(p=>p.id===activeProfile)||profiles[0];
+  const profBlock = `<section class="panel"><div class="section-title"><h3>${account?"Profiles on this device":"Who's studying?"}</h3><span class="tag">no account needed · this browser only</span></div>
+    ${account?`<p class="muted" style="margin-top:0">Sign out to use a profile.</p>`:""}
+    <div class="profiles">${profiles.map(p=>`<div class="prof ${!account&&p.id===activeProfile?"on":""}">
+      ${renamingProfile===p.id?`<form class="row" data-renprofile="${p.id}"><input id="rp-name" class="ac-in" maxlength="30" value="${esc(p.name)}" aria-label="Profile name"><button class="btn small primary">Save</button></form>`:`<button class="pname" data-profile="${p.id}" ${account?"disabled":""}>${esc(p.name)}${!account&&p.id===activeProfile?" ✓":""}</button>
+      <button class="btn small" data-profren="${p.id}">Rename</button>`}
+      ${p.id==="default"?"":confirmProfileDel===p.id?`<span class="inline-confirm">Delete ${esc(p.name)}'s progress? <button class="btn small danger" data-profdel="yes">Delete</button><button class="btn small" data-profdel="no">Keep</button></span>`:`<button class="btn small danger" data-profdel="${p.id}">Delete</button>`}</div>`).join("")}</div>
+    <form class="row" data-newprofile style="margin-top:12px"><input id="np-name" maxlength="30" placeholder="Name, e.g. Ana" aria-label="New profile name" class="ac-in" style="max-width:240px"><button class="btn">+ Add profile</button></form></section>`;
+  let acct;
+  if (!ACCOUNTS_ON) acct = `<section class="panel"><div class="section-title"><h3>Online account</h3><span class="tag">not set up yet</span></div><p style="margin:0">Online accounts (email and password, with progress saved online across devices) switch on once the site owner connects a free Supabase project. Until then, profiles above keep each person's progress separate on this device, and <b>Notes → Backup</b> moves it between devices.</p></section>`;
+  else if (account) acct = `<section class="panel"><div class="section-title"><h3>Your account</h3><span class="sync" data-st="${cloud.status}">${cloud.status==="synced"?"Synced":cloud.status==="syncing"?"Syncing…":"Not synced"}</span></div>
+     <p style="margin:0 0 12px">Signed in as <b>${esc(account.email)}</b>. Your progress saves online and follows you to any device where you sign in.</p>
+     ${offerImport?`<div class="tip" style="margin-bottom:12px"><h4>Bring your progress over?</h4><p>Your account is new. Copy the progress from the « ${esc(cur.name)} » profile on this device into it?</p><div class="row" style="margin-top:8px"><button class="btn primary small" data-import>Copy « ${esc(cur.name)} » into my account</button><button class="btn small" data-noimport>Start fresh</button></div></div>`:""}
+     <button class="btn" data-signout>Sign out</button></section>`;
+  else acct = `<section class="panel"><div class="section-title"><h3>Sign in</h3><span class="tag">progress saved online</span></div>
+     <form class="form" data-authform style="max-width:380px">
+       <label>Email<input id="ac-email" type="email" autocomplete="email" required></label>
+       <label>Password<input id="ac-pass" type="password" autocomplete="current-password" minlength="6" required></label>
+       <div class="row"><button class="btn primary" data-auth="in" ${acctBusy?"disabled":""}>Sign in</button><button class="btn" type="button" data-auth="up" ${acctBusy?"disabled":""}>Create account</button></div>
+     </form>${acctMsg?`<p class="fb almost" style="margin-top:12px">${esc(acctMsg)}</p>`:""}
+     <p class="muted" style="font-size:.85rem;margin-bottom:0">Each person creates their own account. On a shared computer, sign out when you're done.</p></section>`;
+  return `<div class="lvhead"><div><div class="eyebrow">Compte · save your progress</div><h2>Account</h2><p>Keep each person's progress separate, and save it online to use on any device.</p></div></div>
+   <div class="stack">${acct}${profBlock}</div>`;
+}
 
 /* ---------- AI tutor feedback (sample capability) ---------- */
 let AI = null;
@@ -1480,10 +1729,10 @@ const norm = s => s.toLowerCase().replace(/[’`]/g,"'").replace(/[.!?;,«»"]/g
 const strip = s => s.normalize("NFD").replace(/[̀-ͯ]/g,"");
 
 /* ============================== ROUTING ============================== */
-const VIEWS = [["today","Aujourd'hui"],["a1","A1"],["a2","A2"],["b1","B1"],["b2","B2"],["examens","Examens"],["programme","Programme"],["cartes","Flashcards"],["carnet","Notes"]];
+const VIEWS = [["today","Aujourd'hui"],["a1","A1"],["a2","A2"],["b1","B1"],["b2","B2"],["conjugaison","Conjugaison"],["examens","Examens"],["programme","Programme"],["cartes","Flashcards"],["carnet","Notes"]];
 let view = "today", sub = {}, lessonSel = {}, readSel = {};
 const fromHash = location.hash.replace("#","");
-if (VIEWS.some(v=>v[0]===fromHash)) view = fromHash;
+if (VIEWS.some(v=>v[0]===fromHash) || (fromHash==="compte" && !IN_CLAUDE)) view = fromHash;
 
 function renderNav(){
   document.getElementById("nav").innerHTML = VIEWS.map(([id,l])=>{
@@ -1492,7 +1741,8 @@ function renderNav(){
 }
 function renderStreak(){
   const n = streak();
-  document.getElementById("streak").innerHTML = `<span>Série <b>${n}</b> jour${n===1?"":"s"}</span><span>Leçons <b>${Object.keys(S.done).length}</b>/${allLessons().length}</span>`;
+  renderAcct();
+  document.getElementById("streak").innerHTML =`<span>Série <b>${n}</b> jour${n===1?"":"s"}</span><span>Leçons <b>${Object.keys(S.done).length}</b>/${allLessons().length}</span>`;
 }
 function go(id){ view=id; try{ history.replaceState(null,"","#"+id);}catch(e){} render(); window.scrollTo({top:0}); }
 function render(){
@@ -1500,6 +1750,8 @@ function render(){
   const app = document.getElementById("app");
   if (view==="today") app.innerHTML = vToday();
   else if (LEVELS[view]) app.innerHTML = vLevel(view);
+  else if (view==="compte") app.innerHTML = vAccount();
+  else if (view==="conjugaison") app.innerHTML = vConj();
   else if (view==="examens") app.innerHTML = vExams();
   else if (view==="programme") app.innerHTML = vPlan();
   else if (view==="cartes") app.innerHTML = vCards();
@@ -2006,6 +2258,150 @@ function vPlan(){
    <div class="tip" style="margin-top:18px"><h4>If a week gets too busy</h4><p>Your workbook's advice: protect these three first. Verb conjugation drills, passé composé vs imparfait, and speaking practice. Everything else can slide a week.</p></div>`;
 }
 
+/* ============================== CONJUGAISON ============================== */
+let conjVerb = "être", conjCover = false, conjQuiz = null, conjSearch = "";
+function vConj(){
+  const c = conjugate(conjVerb) || conjugate("être");
+  const q = conjSearch.trim().toLowerCase();
+  const matches = q ? VERB_LIST.filter(([inf,en]) => inf.includes(q) || en.toLowerCase().includes(q)).slice(0,14) : [];
+  const common = ["être","avoir","aller","faire","venir","prendre","pouvoir","vouloir","devoir","savoir","dire","voir","parler","finir","attendre","se lever"];
+  const card = ([k,f,e]) => { const rows = c.t[k]; if (!rows) return "";
+    return `<section class="tense"><header><div><h4>${f}</h4><span class="muted">${e}</span></div>${sayBtn(rows.join(", "),"Listen to "+f)}</header>
+      <ul>${rows.map(r=>`<li><span class="cform">${esc(r)}</span></li>`).join("")}</ul></section>`; };
+  let quizHTML = "";
+  if (conjQuiz && conjQuiz.verb===c.inf){
+    quizHTML = `<div class="panel conjquiz"><div class="section-title"><h3>Quiz: ${esc(c.inf)}</h3><span class="tag">type the verb only</span></div>
+      <form data-conjquiz>${conjQuiz.items.map((it,n)=>`<div class="cq"><label for="cq-${n}"><span class="tag">${esc(it.label)}</span> ${esc(it.prompt)}</label><input id="cq-${n}" autocomplete="off" spellcheck="false" value="${esc(it.given||"")}" ${it.done?"disabled":""}>${it.done?`<span class="${it.ok?"ok-t":"no-t"}">${it.ok?"✓":"✗ "+esc(it.answer)}</span>`:""}</div>`).join("")}
+      <div class="row" style="margin-top:12px">${conjQuiz.checked?`<b>${conjQuiz.items.filter(i=>i.ok).length}/${conjQuiz.items.length}</b><button class="btn small primary" type="button" data-conjquizgo>New quiz</button>`:`<button class="btn small primary">Check</button>`}<button class="btn small" type="button" data-conjquizclose>Close</button></div></form></div>`;
+  }
+  return `<div class="lvhead"><div><div class="eyebrow">Conjugaison · every tense, every person</div><h2>Conjugaison</h2><p>Look up any verb from présent to conditionnel. Cover the forms to test yourself, or take a quick quiz.</p></div></div>
+   <div class="conj-search">
+     <input id="conj-q" placeholder="Type a verb in French or English: venir, to eat, se lever…" value="${esc(conjSearch)}" aria-label="Find a verb" autocomplete="off" spellcheck="false">
+     <div class="chips">${(matches.length?matches.map(m=>m[0]):q?[]:common).map(v=>`<button class="chip ${v===c.inf?"on":""}" data-verb="${esc(v)}">${esc(v)}</button>`).join("")}${q && !matches.some(m=>m[0]===q) && /(er|ir|re)$/.test(q) ? `<button class="chip" data-verb="${esc(q)}">Conjugate « ${esc(q)} »</button>` : ""}</div>
+   </div>
+   <div class="verbhead"><div><h3>${esc(c.inf)} ${sayBtn(c.inf)}</h3><p class="muted" style="margin:2px 0 0">${esc(c.en||"")}</p></div>
+     <dl class="vfacts"><div><dt>Auxiliaire</dt><dd>${c.aux}</dd></div><div><dt>Participe passé</dt><dd>${esc(c.pp)}</dd></div>${c.ppr?`<div><dt>Participe présent</dt><dd>${esc(c.ppr)}</dd></div>`:""}${c.group?`<div><dt>Groupe</dt><dd>${c.group===1?"1er (-er)":c.group===2?"2e (-ir, finir)":"3e (irregular)"}</dd></div>`:""}</dl>
+     <div class="row"><button class="btn small" data-conjcover aria-pressed="${conjCover}">${conjCover?"Show all forms":"Cover forms"}</button>${c.impersonal?"":`<button class="btn small primary" data-conjquizgo>Quiz me</button>`}<button class="btn small" data-addcard="${esc(JSON.stringify([c.inf, c.en||"", c.t.pres[0]]))}">+ Flashcard</button></div></div>
+   ${!c.known?`<p class="fb almost">« ${esc(c.inf)} » isn't in the verb list, so it's conjugated with the regular ${c.group===1?"-er":c.group===2?"-ir (finir)":"-re (vendre)"} pattern. Check a dictionary if it might be irregular.</p>`:""}
+   ${c.aux==="être"&&!c.impersonal?`<p class="muted" style="font-size:.9rem">Uses <b>être</b> in compound tenses, so the participle agrees with the subject: (e) feminine, (s) plural.</p>`:""}
+   ${quizHTML}
+   <div class="tenses ${conjCover?"covered":""}">${TENSES.map(card).join("")}</div>
+   <p class="muted" style="font-size:.85rem">« il » also stands for elle / on, and « ils » for elles. Click a covered form to reveal it.</p>`;
+}
+function newConjQuiz(c){
+  const pool = []; ["pres","imp","fut","cond","subj","pc"].forEach(k => (c.raw[k]||[0,1,2,3,4,5]).forEach((_,i)=>pool.push([k,i])));
+  const label = {pres:"Présent", imp:"Imparfait", fut:"Futur", cond:"Conditionnel", subj:"Subjonctif", pc:"Passé composé"};
+  const items = shuffled(pool).slice(0,8).map(([k,i]) => { const full = c.t[k][i];
+    const form = k==="pc" ? AUX.pres[c.aux][i]+" "+c.pp : c.raw[k][i];
+    const idx = full.lastIndexOf(form); const prompt = full.slice(0, idx) + "___";
+    const answers = k==="pc" && c.aux==="être" ? ["","e","s","es"].map(g=>form+g) : [form];
+    return {label: label[k], prompt, answer: form, answers}; });
+  conjQuiz = {verb:c.inf, items, checked:false};
+}
+function checkConjQuiz(){
+  conjQuiz.items.forEach((it,n) => { const v = document.getElementById("cq-"+n).value; it.given = v; it.done = true; it.ok = it.answers.some(a => norm(a)===norm(v)); });
+  conjQuiz.checked = true; markActive(); render();
+}
+
+/* ============================== TRANSLATE ============================== */
+let DICT = null;
+function dictIndex(){
+  if (DICT) return DICT; DICT = [];
+  const add = (fr, en, src) => { if (fr && en) DICT.push({fr, en, src, k:normWord(fr), ke:normWord(en)}); };
+  Object.values(VOCAB).forEach(arr => arr.forEach(w => add(w[0], w[2], "Vocabulaire")));
+  THEMES.forEach(t => t.cards.forEach(w => add(w[0], w[2], t.name)));
+  PHRASES.forEach(p => add(p[0], p[1], "Expression"));
+  Object.values(LEVELS).forEach(L => L.reading.forEach(r => r.gloss.forEach(([f,e]) => add(f, e, "Lecture"))));
+  VERB_LIST.forEach(([f,e]) => add(f, e, "Verbe"));
+  return DICT;
+}
+const normWord = s => strip(String(s).toLowerCase().replace(/[’]/g,"'").replace(/\([^)]*\)/g,"").replace(/^(le |la |les |l'|un |une |des |du |de la |de l'|se |s'|to )/,"").replace(/[.,!?;:«»"]/g,"").trim());
+function lookupLocal(q, dir){
+  const k = normWord(q); if (!k) return [];
+  const all = dictIndex().concat(S.myCards.map(c=>({fr:c.fr, en:c.en, src:"My cards", k:normWord(c.fr), ke:normWord(c.en)})));
+  const key = dir==="en" ? "ke" : "k";
+  const exact = all.filter(d => d[key]===k || d[key].split(/\s*[\/,]\s*/).includes(k));
+  const near = k.length>2 ? all.filter(d => !exact.includes(d) && new RegExp("(^|[\\s'/-])"+k.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+"($|[\\s/,-])").test(d[key])) : [];
+  const seen = new Set(); return [...exact, ...near].filter(d => { const s=d.fr+"|"+d.en; if (seen.has(s)) return false; seen.add(s); return true; }).slice(0,6);
+}
+let tr = {open:false, q:"", ctx:"", dir:"fr", result:null, busy:false, err:""}, trCtl = null;
+function openTranslate(q, ctx){ tr = {open:true, q:(q||"").trim().slice(0,200), ctx:(ctx||"").slice(0,400), dir: guessDir(q), result:null, busy:false, err:""}; renderTr(); if (tr.q) runTranslate(); else setTimeout(()=>document.getElementById("tr-q")?.focus(), 30); }
+function guessDir(q){ if (!q) return "fr"; if (/[éèêàâçùûôîœ]/i.test(q)) return "fr"; const fr = lookupLocal(q,"fr").length, en = lookupLocal(q,"en").length; return en>fr ? "en" : "fr"; }
+function closeTranslate(){ tr.open=false; if (trCtl) trCtl.abort(); renderTr(); }
+async function runTranslate(){
+  if (!tr.q) return; tr.result = null; tr.err=""; tr.busy = true; renderTr();
+  const q = tr.q, dir = tr.dir;
+  if (dir==="fr" && AI===null && IN_CLAUDE){ /* AI not ready yet or not allowed: links still shown */ }
+  try{
+    if (AI){
+      trCtl = new AbortController();
+      const r = await AI.json(`Translate this ${dir==="fr"?"French":"English"} text into ${dir==="fr"?"English":"French"} for a learner preparing the TEF Canada: « ${q} »${tr.ctx?`\nIt appears in this sentence: « ${tr.ctx} »`:""}
+Reply with only JSON: {"translation":"the best translation in context","alternatives":["up to 3 other common meanings"],"base":"dictionary form if the ${dir==="fr"?"French":"English"} word is inflected (infinitive for verbs, masculine singular for adjectives, noun with le/la), else empty","note":"one short note in English on usage, gender or grammar, or empty"}`, {modelTier:"quick", signal:trCtl.signal});
+      tr.result = {source:"AI tutor", translation:String(r.translation||""), alternatives:(r.alternatives||[]).map(String).slice(0,3), base:String(r.base||""), note:String(r.note||"")};
+    } else if (!IN_CLAUDE){
+      const res = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(q)}&langpair=${dir==="fr"?"fr|en":"en|fr"}`);
+      const j = await res.json(); const t = j && j.responseData && j.responseData.translatedText;
+      if (!t || /MYMEMORY WARNING|QUERY LENGTH LIMIT/i.test(t)) throw new Error("limit");
+      const alts = (j.matches||[]).map(m=>m.translation).filter(x=>x && x.toLowerCase()!==t.toLowerCase()).filter((x,i,a)=>a.indexOf(x)===i).slice(0,3);
+      tr.result = {source:"MyMemory", translation:t, alternatives:alts, base:"", note:""};
+    }
+  }catch(e){ if (!(e && e.code==="cancelled")) tr.err = IN_CLAUDE ? "The AI translation isn't available right now. Use the dictionary links below." : "Online translation isn't available right now (daily limit or no connection). Use the dictionary links below."; }
+  tr.busy = false; if (tr.q===q) renderTr();
+}
+function renderTr(){
+  let el = document.getElementById("trpanel");
+  if (!tr.open){ if (el) el.hidden = true; return; }
+  if (!el){ el = document.createElement("aside"); el.id="trpanel"; el.className="trpanel"; el.setAttribute("aria-label","Translator"); document.body.appendChild(el); }
+  el.hidden = false;
+  const q = tr.q, local = q ? lookupLocal(q, tr.dir) : [];
+  const rawForms = (q && tr.dir==="fr") ? (formIndex()[q.toLowerCase().replace(/^(que |qu')/,"").replace(/^(je |j'|tu |il |elle |on |nous |vous |ils |elles )/,"")] || []) : [];
+  const grouped = {}; rawForms.forEach(([inf,lab]) => { const [t,p] = lab.split(" · "); const k = inf+"|"+t; grouped[k] = grouped[k] || [inf, t, []]; if (p) grouped[k][2].push(p); });
+  const forms = Object.values(grouped).map(([inf,t,ps]) => [inf, t + (ps.length ? " · "+ps.join(", ") : "")]);
+  const verbHere = q && tr.dir==="fr" && conjugate(q) && (VERB_EN[q.toLowerCase()] || IRV[q.toLowerCase()]) ? q.toLowerCase() : null;
+  const enc = encodeURIComponent(q);
+  const best = tr.result ? tr.result.translation : local[0] ? (tr.dir==="fr" ? local[0].en : local[0].fr) : "";
+  el.innerHTML = `<div class="tr-head"><b>Traduire</b><span class="muted" style="font-size:.78rem">Alt + T · or select any text</span><button class="btn small" data-trclose aria-label="Close translator">✕</button></div>
+   <form class="tr-form" data-trform><input id="tr-q" value="${esc(q)}" placeholder="${tr.dir==="fr"?"Mot ou phrase en français…":"English word or phrase…"}" aria-label="Text to translate" autocomplete="off">
+    <button type="button" class="btn small" data-trdir title="Swap direction">${tr.dir==="fr"?"FR → EN":"EN → FR"}</button><button class="btn small primary">Go</button></form>
+   <div class="tr-body">
+    ${forms.length?`<div class="tr-sec"><div class="eyebrow">Verb form</div>${forms.slice(0,3).map(([inf,lab])=>`<div class="row"><span><b>${esc(q)}</b> = <b>${esc(inf)}</b> <span class="muted">(${esc(lab)})</span></span><button class="linkbtn" data-conjgo="${esc(inf)}">See all forms</button></div>`).join("")}</div>`:""}
+    ${verbHere?`<div class="tr-sec"><button class="linkbtn" data-conjgo="${esc(verbHere)}">Open the conjugation of « ${esc(verbHere)} »</button></div>`:""}
+    ${tr.busy?`<div class="tr-sec"><span class="dots">Translating</span></div>`:""}
+    ${tr.result?`<div class="tr-sec"><div class="eyebrow">${esc(tr.result.source)}</div><div class="tr-main">${esc(tr.result.translation)} ${tr.dir==="en"?sayBtn(tr.result.translation):""}</div>
+      ${tr.result.alternatives.length?`<div class="muted">Also: ${tr.result.alternatives.map(esc).join(" · ")}</div>`:""}
+      ${tr.result.base?`<div class="muted">Dictionary form: <b>${esc(tr.result.base)}</b></div>`:""}${tr.result.note?`<div style="font-size:.88rem;margin-top:4px">${esc(tr.result.note)}</div>`:""}</div>`:""}
+    ${tr.err?`<div class="fb almost" style="margin:0 0 8px">${esc(tr.err)}</div>`:""}
+    ${local.length?`<div class="tr-sec"><div class="eyebrow">In your carnet</div>${local.map(d=>`<div class="tr-hit">${sayBtn(d.fr)}<span><b>${esc(d.fr)}</b> — ${esc(d.en)}</span><span class="tag">${esc(d.src)}</span></div>`).join("")}</div>`:""}
+    ${q && !local.length && !tr.result && !tr.busy && !forms.length && !tr.err && !AI && IN_CLAUDE?`<div class="muted" style="font-size:.88rem">Not in your carnet. Try the dictionaries below.</div>`:""}
+    ${q?`<div class="tr-sec tr-links"><a href="https://www.wordreference.com/${tr.dir==="fr"?"fren":"enfr"}/${enc}" target="_blank" rel="noopener">WordReference ↗</a><a href="https://context.reverso.net/traduction/${tr.dir==="fr"?"francais-anglais":"anglais-francais"}/${enc}" target="_blank" rel="noopener">Reverso (examples) ↗</a><a href="https://translate.google.com/?sl=${tr.dir}&tl=${tr.dir==="fr"?"en":"fr"}&text=${enc}&op=translate" target="_blank" rel="noopener">Google Translate ↗</a></div>
+     <div class="row">${tr.dir==="fr"?sayBtn(q):""}${best?`<button class="btn small" data-addcard="${esc(JSON.stringify(tr.dir==="fr"?[q,best,tr.ctx]:[best,q,""]))}">+ Add to my flashcards</button>`:""}</div>`:""}
+   </div>`;
+}
+/* select text anywhere on the page → a small Traduire bubble */
+let bubble = null;
+function hideBubble(){ if (bubble) bubble.hidden = true; }
+function selectionCheck(){
+  const sel = window.getSelection(); const txt = sel ? sel.toString().trim() : "";
+  if (!txt || txt.length > 120 || !sel.rangeCount){ hideBubble(); return; }
+  const node = sel.anchorNode && (sel.anchorNode.nodeType===1 ? sel.anchorNode : sel.anchorNode.parentElement);
+  if (!node || node.closest("input, textarea, #trpanel, header.top")) { hideBubble(); return; }
+  const r = sel.getRangeAt(0).getBoundingClientRect(); if (!r.width && !r.height){ hideBubble(); return; }
+  if (!bubble){ bubble = document.createElement("button"); bubble.className="trbubble"; bubble.type="button"; bubble.textContent="Traduire"; document.body.appendChild(bubble);
+    bubble.addEventListener("mousedown", e=>e.preventDefault());
+    bubble.addEventListener("click", ()=>{ const s=window.getSelection(); const t=s.toString().trim(); const n=s.anchorNode && (s.anchorNode.nodeType===1?s.anchorNode:s.anchorNode.parentElement); const ctx = n ? (n.closest("p, li, td, .ex, .passage, .q, .fcard, .wod")||n).textContent.trim().replace(/\s+/g," ") : ""; hideBubble(); openTranslate(t, ctx!==t?ctx:""); }); }
+  bubble.hidden = false;
+  const top = Math.max(8, r.top - 42), left = Math.min(window.innerWidth - 100, Math.max(8, r.left + r.width/2 - 45));
+  bubble.style.top = top + "px"; bubble.style.left = left + "px";
+}
+document.addEventListener("mouseup", ()=>setTimeout(selectionCheck, 10));
+document.addEventListener("touchend", ()=>setTimeout(selectionCheck, 350));
+document.addEventListener("keyup", e=>{ if (e.shiftKey) selectionCheck(); });
+window.addEventListener("scroll", hideBubble, {passive:true});
+document.addEventListener("keydown", e=>{
+  if (e.altKey && e.code==="KeyT"){ e.preventDefault(); const t = window.getSelection().toString().trim(); if (tr.open && !t) closeTranslate(); else openTranslate(t.slice(0,200), ""); }
+  else if (e.key==="Escape" && tr.open) closeTranslate();
+});
+
 /* ============================== EVENTS ============================== */
 document.addEventListener("click", e=>{
   const el = e.target.closest("button, a"); if(!el) return;
@@ -2046,6 +2442,23 @@ document.addEventListener("click", e=>{
   if (d.xback!=null){ run=null; render(); window.scrollTo({top:0}); return; }
   if (d.diagsave!=null){ saveDiag(); return; }
   if (d.planall!=null){ planAll=!planAll; render(); return; }
+  if (d.verb){ conjVerb=d.verb; conjSearch=""; conjQuiz=null; render(); return; }
+  if (d.conjgo){ conjVerb=d.conjgo; conjSearch=""; conjQuiz=null; closeTranslate(); go("conjugaison"); return; }
+  if (d.conjcover!=null){ conjCover=!conjCover; render(); return; }
+  if (d.conjquizgo!=null){ newConjQuiz(conjugate(conjVerb)); render(); document.querySelector(".conjquiz")?.scrollIntoView({block:"start"}); return; }
+  if (d.conjquizclose!=null){ conjQuiz=null; render(); return; }
+  if (d.trclose!=null){ closeTranslate(); return; }
+  if (d.trdir!=null){ tr.dir = tr.dir==="fr"?"en":"fr"; tr.q=document.getElementById("tr-q").value.trim(); tr.result=null; renderTr(); if (tr.q) runTranslate(); return; }
+  if (d.tropen!=null){ openTranslate(window.getSelection().toString().trim().slice(0,200), ""); return; }
+  if (d.profile){ if (d.profile!==activeProfile) switchProfile(d.profile); return; }
+  if (d.profren){ renamingProfile=d.profren; render(); const i=document.getElementById("rp-name"); if(i){ i.focus(); i.select(); } return; }
+  if (d.profdel){ if (d.profdel==="no"){ confirmProfileDel=null; }
+    else if (d.profdel==="yes"){ const id=confirmProfileDel; confirmProfileDel=null; try{ localStorage.removeItem(KEY+":"+id); }catch(e){} profiles=profiles.filter(p=>p.id!==id); saveProfiles(); if (activeProfile===id){ switchProfile("default"); return; } toast("Profile deleted"); }
+    else confirmProfileDel=d.profdel; render(); return; }
+  if (d.auth==="up"){ doAuth("up"); return; }
+  if (d.signout!=null){ signOut(); return; }
+  if (d.import!=null){ const raw=lsGet(activeProfile==="default"?KEY:KEY+":"+activeProfile); if(raw){ try{ S=Object.assign(defaults(), JSON.parse(raw)); }catch(e){} } offerImport=false; save(); render(); toast("Progress copied into your account"); return; }
+  if (d.noimport!=null){ offerImport=false; render(); return; }
   if (d.copy!=null){ const ta=document.getElementById("bk-out"); const p=navigator.clipboard?navigator.clipboard.writeText(ta.value):Promise.reject(); p.then(()=>toast("Backup copied")).catch(()=>{ ta.focus(); ta.select(); toast("Selected. Press Ctrl+C to copy"); }); return; }
   if (d.restore){ const rc=document.getElementById("restore-confirm");
     if (d.restore==="ask"){ rc.innerHTML=`<span class="inline-confirm">This replaces your current data. <button class="btn small danger" data-restore="yes">Restore</button></span>`; return; }
@@ -2059,6 +2472,11 @@ document.addEventListener("submit", e=>{
     f.querySelector("input").disabled=true; f.querySelector("button").disabled=true;
     answerQ(qEl, ok||close, ok?"Correct ! "+esc(q.x||""):close?`Almost! Check the accents: <b>${esc(q.t[0])}</b>`:`Answer: <b>${esc(q.t[0])}</b>. ${esc(q.x||"")}`, close?"almost":undefined); return; }
   if (f.matches("[data-diagform]")){ submitDiag(); return; }
+  if (f.matches("[data-authform]")){ doAuth("in"); return; }
+  if (f.matches("[data-conjquiz]")){ if (!conjQuiz.checked) checkConjQuiz(); return; }
+  if (f.matches("[data-trform]")){ tr.q=document.getElementById("tr-q").value.trim(); tr.ctx=""; if (tr.q){ tr.dir = /[éèêàâçùûôîœ]/i.test(tr.q) ? "fr" : tr.dir; runTranslate(); } return; }
+  if (f.matches("[data-newprofile]")){ const n=document.getElementById("np-name").value.trim(); if(!n) return; const p={id:"p"+Date.now(), name:n}; profiles.push(p); saveProfiles(); switchProfile(p.id); return; }
+  if (f.matches("[data-renprofile]")){ const n=document.getElementById("rp-name").value.trim(); const p=profiles.find(x=>x.id===f.dataset.renprofile); if(p&&n){ p.name=n; saveProfiles(); } renamingProfile=null; render(); return; }
   if (f.matches("[data-newcard]")){ const fr=document.getElementById("nc-fr").value.trim(), en=document.getElementById("nc-en").value.trim(), ex=document.getElementById("nc-ex").value.trim(); if(!fr||!en) return;
     S.myCards.push({id:"m"+Date.now(), fr, en, ex}); save(); toast("Card added"); deck="mine"; queue=[]; curCard=null; render(); return; }
 });
@@ -2073,6 +2491,7 @@ document.addEventListener("change", e=>{
 });
 document.addEventListener("input", e=>{
   const t=e.target;
+  if (t.id==="conj-q"){ conjSearch=t.value; const pos=t.selectionStart; render(); const n=document.getElementById("conj-q"); n.focus(); n.setSelectionRange(pos,pos); return; }
   if (t.dataset.speak){ S.speak[t.dataset.speak]=t.value; save(); const w=document.getElementById("wcs-"+t.dataset.speak); if(w) w.textContent=wc(t.value)+" words"; }
   if (t.dataset.xee!=null && run){ run.ee=t.value; document.getElementById("wc-xee").textContent=wc(t.value)+" words"; }
   if (t.dataset.xeo!=null && run){ run.eo=t.value; document.getElementById("wc-xeo").textContent=wc(t.value)+" words"; }
@@ -2086,6 +2505,8 @@ document.addEventListener("keydown", e=>{
 });
 document.addEventListener("click", e=>{ if(e.target.closest("[data-flip]") && !e.target.closest("button")){ flipped=!flipped; drawCard(); } });
 document.addEventListener("keydown", e=>{ if(e.key==="Enter" && e.target.matches(".dict input")){ checkDict(e.target.closest("[data-dict]").dataset.dict); } });
+document.addEventListener("keydown", e=>{ if (e.key==="Enter" && e.target.id==="conj-q"){ const first=document.querySelector(".conj-search .chip"); if (first && conjSearch.trim()){ e.preventDefault(); first.click(); } } });
+document.addEventListener("click", e=>{ const f=e.target.closest(".covered .cform"); if (f) f.classList.toggle("shown"); });
 
 function checkDict(key){
   const [lv,i]=key.split("-"); const [fr,en]=(lv==="qc"?QC_DICTEE:LEVELS[lv].listening.dictee)[+i];
@@ -2110,6 +2531,7 @@ window.addEventListener("hashchange", ()=>{ const h=location.hash.replace("#",""
 render();
 initAI();
 initCloud();
+initAccounts();
 </script>
 
 </body>
